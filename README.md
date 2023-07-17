@@ -1,6 +1,6 @@
 # Cyber Burger King
 
-Hello world! I'm using Git!
+
 
 ## Getting started
 

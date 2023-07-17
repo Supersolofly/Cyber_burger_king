@@ -1,7 +1,6 @@
-from controller import Motor, PositionSensor, TouchSensor, InertialUnit, Robot, Camera, Lidar, DistanceSensor, Supervisor
+from controller import Motor, PositionSensor, TouchSensor, InertialUnit, Supervisor, Camera, Lidar
 import numpy as np
 import sys
-
 
 TIME_STEP = 16
 
@@ -10,78 +9,62 @@ WHEELS_DISTANCE = 0.4492    # Distance between 2 caster wheels (the four wheels 
 SUB_WHEELS_DISTANCE = 0.098 # Distance between 2 sub wheels of a caster wheel [m]
 WHEEL_RADIUS = 0.08         # Wheel radius
 
-TOLERANCE1 = 0.05 # arbitrary value
-TOLERANCE2 = 0.005
+TOLERANCE = 0.05 # arbitrary value
 
-def almost_equal1(a, b) -> bool:
-    return (a < b + TOLERANCE1) and (a > b - TOLERANCE1)
-    
-def almost_equal2(a, b) -> bool:
-    return (a < b + TOLERANCE2) and (a > b - TOLERANCE2)
+def almost_equal(a, b) -> bool:
+    return (a < b + TOLERANCE) and (a > b - TOLERANCE)
 
 class POS():
     def __init__(self, 
-                 breadtop: int, 
+                 bread: int, 
                  lettuce: int, 
                  beef: int, 
-                 cheese: int,
                  tomato: int,
-                 breadbottom: int,
-                 rb_pos_breadtop: np.array, 
+                 rb_pos_bread: np.array, 
                  rb_pos_lettuce: np.array,
                  rb_pos_beef: np.array, 
-                 rb_pos_cheese: np.array, 
                  rb_pos_tomato: np.array,
-                 rb_pos_breadbottom: np.array,  
+                 rb_pos_hamburger: np.array, 
                  offset_hor: float,
-                 offset_ver: float,
-                 offset_x: float
+                 offset_ver: float
                  ) -> None:
         # Infomation about the env
-        self.ingredients = {'breadtop': breadtop,
+        self.ingredients = {'bread': bread,
                             'lettuce': lettuce,
                             'beef': beef,
-                            'cheese': cheese,
                             'tomato': tomato,
-                            'breadbottom': breadbottom}
+                            'hamburger': 0}
         
         # Position
-        self.rb_pos = {'breadtop': rb_pos_breadtop,
+        self.rb_pos = {'bread': rb_pos_bread,
                        'lettuce': rb_pos_lettuce,
                        'beef': rb_pos_beef,
-                       'cheese': rb_pos_cheese,
                        'tomato': rb_pos_tomato,
-                       'breadbottom': rb_pos_breadbottom}
+                       'hamburger': rb_pos_hamburger}
 
         # Offset
         self.offset_hor = offset_hor
         self.offset_ver = offset_ver
-        self.offset_x = offset_x
 
-        # Free hands
-        self.hands = np.array([1,1])
+    def get_rb_target_pos(self, target: str, hand: str) -> any:
 
-    def get_rb_target_pos(self, target: str) -> any:
-        target_hand = np.argmin(self.hands)
-        if self.hands[target_hand] == 0:
-            return None
-        elif target_hand == 0:
-            offset = [-self.offset_x, -self.offset_hor, (self.ingredients[target] - 1) * self.offset_ver]
-            return ["left", self.rb_pos[target] + np.array(offset)]
-        elif target_hand == 1:
-            offset = [-self.offset_x, self.offset_hor, (self.ingredients[target] - 1) * self.offset_ver]
-            return ["right", self.rb_pos[target] + np.array(offset)]
-        
-    def update_hands(self, target_hand: int, is_free: bool) -> None:
-        self.hands[target_hand] = int(is_free)
+        if hand == 'left':
+            offset = [0, -self.offset_hor, self.ingredients[target] * self.offset_ver]
+            return self.rb_pos[target] + np.array(offset)
+        elif hand == 'right':
+            offset = [0, self.offset_hor, self.ingredients[target] * self.offset_ver]
+            return self.rb_pos[target] + np.array(offset)
 
     def update_ingredients(self, target_obj: str) -> None:
-        self.ingredients[target_obj] -= 1
+        if target_obj == 'hamburger':
+            self.ingredients[target_obj] += 1
+        else:
+            self.ingredients[target_obj] -= 1
 
-class PR2(Robot):
-    def __init__(self) -> None:
-        super().__init__()
-        self.pos = POS(6,6,6,6,6,6,np.array([1.37, 0.78, 0.76]),np.array([1.37, 0.42, 0.76]),np.array([1.37, 0.06, 0.76]),np.array([1.388, -0.3, 0.76]),np.array([1.37, -0.66, 0.76]),np.array([1.37, -1.02, 0.76]), 0.16,0.04,0.9)
+class PR2():
+    def __init__(self, supervisor) -> None:
+
+        self.supervisor = supervisor
 
         # PR2 motors' device
         self.wheel_motors = []
@@ -162,6 +145,10 @@ class PR2(Robot):
         laser_tilt_name = ['laser_tilt']
         base_laser_name = ['base_laser']
         
+        # Get robot node
+        self.robot_node = None
+        self._set_robot_node()
+        
         # Retrieve all the PR2 devices
         self._initialize_devices(wheel_motors_name, rotation_motors_name,
                                  left_arm_motors_name, right_arm_motors_name,
@@ -182,11 +169,39 @@ class PR2(Robot):
         self._enable_devices()
 
         # Set initial position
-        # self.set_initial_arm_position()
+        self.set_initial_position()
 
         # Go to the initial position
-        # self.set_arm_position(0.0, 0.55, 0.0, -0.52, 1.57, False, 0)
-        # self.set_arm_position(0.0, 0.55, 0.0, -0.52, 1.57, False, 1)
+        self.set_arm_position(0.0, 0.5, 0.0, -0.5, 0.0, True, 0)
+        self.set_arm_position(0.0, 0.5, 0.0, -0.5, 0.0, True, 1)
+        self.robot_go_forward(0.35)
+
+    def _set_robot_node(self) -> None:
+        """Set robot node"""
+        
+        self.robot_node = self.supervisor.getFromDef('pr2_robot')
+        
+    def get_orientation(self) -> np.array:
+    
+        rot = self.robot_node.getOrientation()
+        matrix = np.array([[rot[0], rot[1], rot[2]],
+                           [rot[3], rot[4], rot[5]],
+                           [rot[6], rot[7], rot[8]]])
+        true_ori = np.round(matrix @ np.array([[1], [0], [0]]), decimals=3)
+        curr_rad = np.arctan2(true_ori[1], true_ori[0])
+
+        if curr_rad > np.pi / 2:
+            return 2 * np.pi - curr_rad
+        elif curr_rad < -np.pi / 2:
+            return -curr_rad
+        else:
+            np.pi - curr_rad
+
+                        
+    def get_position(self) -> np.array:
+    
+        pos = self.robot_node.getPosition()
+        return np.round(pos, decimals=3)
 
     def _initialize_devices(self, wheel_motors_name: list,
                             rotation_motors_name: list,
@@ -339,13 +354,13 @@ class PR2(Robot):
                 all_reached = True
                 for i, sensor in enumerate(self.rotation_sensors):
                     current_position = sensor.getValue()
-                    if not almost_equal2(current_position, pos[i]):
+                    if not almost_equal(current_position, pos[i]):
                         all_reached = False
                         break
 
                 if all_reached:
                     break
-                elif self.step(TIME_STEP) == -1:
+                elif self.supervisor.step(TIME_STEP) == -1:
                     break
 
             self.enable_passive_wheels(False, torques)
@@ -371,14 +386,14 @@ class PR2(Robot):
             # Travel distance done by the wheel
             wheel0_travel_distance = abs(WHEEL_RADIUS * (wheel0_position - initial_wheel0_position))
 
-            if almost_equal2(wheel0_travel_distance, expected_travel_distance):
+            if wheel0_travel_distance > expected_travel_distance:
                 break
 
             # Reduce the speed before reaching the target
             if expected_travel_distance - wheel0_travel_distance < 0.025:
-                self.set_wheels_speed(0.025 * max_wheel_speed)
+                self.set_wheels_speed(0.1 * max_wheel_speed)
 
-            if self.step(TIME_STEP) == -1:
+            if self.supervisor.step(TIME_STEP) == -1:
                 break
 
         # Reset wheels
@@ -401,20 +416,20 @@ class PR2(Robot):
             # Travel distance done by the wheel
             wheel0_travel_distance = abs(WHEEL_RADIUS * (wheel0_position - initial_wheel0_position))
 
-            if almost_equal2(wheel0_travel_distance, abs(distance)):
+            if wheel0_travel_distance > abs(distance):
                 break
 
             # Reduce the speed before reaching the target
             if abs(distance) - wheel0_travel_distance < 0.025:
-                self.set_wheels_speed(0.025 * max_wheel_speed)
+                self.set_wheels_speed(0.1 * max_wheel_speed)
 
-            if self.step(TIME_STEP) == -1:
+            if self.supervisor.step(TIME_STEP) == -1:
                 break
 
         self.set_wheels_speed(0.0)
 
     def set_gripper(self, left: bool, open: bool, torque_when_gripping: float,
-                    wait_on_feedback: bool,target_open_value:float) -> None:
+                    wait_on_feedback: bool) -> None:
         """
         Open or close the gripper.
         If wait_on_feedback is True, the gripper is stopped either when the 
@@ -447,13 +462,13 @@ class PR2(Robot):
             motor.setAvailableTorque(max_torque)
 
         if open:
-            # target_open_value = 0.2
+            target_open_value = 0.5
             for motor in motors:
                 motor.setPosition(target_open_value)
 
             if wait_on_feedback:
-                while not almost_equal1(sensors[0].getValue(), target_open_value):
-                    if self.step(TIME_STEP) == -1:
+                while not almost_equal(sensors[0].getValue(), target_open_value):
+                    if self.supervisor.step(TIME_STEP) == -1:
                         break
 
         else:
@@ -466,9 +481,9 @@ class PR2(Robot):
                 while (
                     (contacts[0].getValue() == 0 or contacts[1].getValue() == 0) 
                     and 
-                    not almost_equal1(sensors[0].getValue(), target_close_value)
+                    not almost_equal(sensors[0].getValue(), target_close_value)
                 ):
-                    if self.step(TIME_STEP) == -1:
+                    if self.supervisor.step(TIME_STEP) == -1:
                         break
 
                 current_position = sensors[0].getValue()
@@ -500,13 +515,13 @@ class PR2(Robot):
 
         if wait_on_feedback:
             while (
-                not almost_equal1(arm_sensors[0].getValue(), shoulder_roll) or
-                not almost_equal1(arm_sensors[1].getValue(), shoulder_lift) or
-                not almost_equal1(arm_sensors[2].getValue(), upper_arm_roll) or
-                not almost_equal1(arm_sensors[3].getValue(), elbow_lift) or
-                not almost_equal1(arm_sensors[4].getValue(), wrist_roll)
+                not almost_equal(arm_sensors[0].getValue(), shoulder_roll) or
+                not almost_equal(arm_sensors[1].getValue(), shoulder_lift) or
+                not almost_equal(arm_sensors[2].getValue(), upper_arm_roll) or
+                not almost_equal(arm_sensors[3].getValue(), elbow_lift) or
+                not almost_equal(arm_sensors[4].getValue(), wrist_roll)
                 ):
-                if self.step(TIME_STEP) == -1:
+                if self.supervisor.step(TIME_STEP) == -1:
                     break
 
     def set_torso_height(self, height: float, wait_on_feedback: bool) -> None:
@@ -517,162 +532,44 @@ class PR2(Robot):
 
         self.torso_motor[0].setPosition(height)
         if wait_on_feedback:
-            while not almost_equal1(self.torso_sensor[0].getValue(), height):
-                if self.step(TIME_STEP) == -1:
+            while not almost_equal(self.torso_sensor[0].getValue(), height):
+                if self.supervisor.step(TIME_STEP) == -1:
                     break
 
-    def set_initial_arm_position(self, object_name: str) -> None:
+    def set_initial_position(self) -> None:
         """Convenient initial position"""
-        if object_name == "left":
-            arm = 0
-            gripper = True
-        elif object_name == "right":
-            arm = 1
-            gripper = False
-        else:
-            print ("Error: Wrong string entered")
         
+        self.set_arm_position(0.0, 1.35, 0.0, -2.2, 0.0, False, 0)
+        self.set_arm_position(0.0, 1.35, 0.0, -2.2, 0.0, False, 1)
 
-        self.set_arm_position(0.0, 0.55, 0.0, -0.52, 1.57, False, arm)
+        self.set_gripper(False, True, 0, False)
+        self.set_gripper(True, True, 0, False)
 
-        self.set_gripper(gripper, True, 0, False, 0.2)
+        self.set_torso_height(0.2, True)
 
-        #self.set_torso_height(0.2, True)
-        
-    def set_initial_wheels_position(self) -> None:
-        # initialize the wheels
-        self.set_wheels_speed(0)
-        self.set_rotation_wheels_angles(np.pi / 2.0, np.pi / 2.0, 
-                                            np.pi / 2.0, np.pi / 2.0, True)
-        
+robot = Supervisor()
+pr2 = PR2(robot)
 
-    def locate_rb_position(self, target: str) -> np.array:
-        """
-        locate where should robot be at based on the target
-        """
-    
-        rb_pos = []
-        rb_pos = self.pos.get_rb_target_pos(target)
-        loc = rb_pos[1]
-        self.pos.update_ingredients(target)
-        
-        return loc
-        
-    def move_to_object_location(self, loc: np.array) -> None:
-        """
-        move the robot to a appropriate postion from initial position so that 
-        the food can be successfully reached by grab_object function
-        """
-       
-      # up to a proper height
-        self.set_torso_height(loc[2]-0.65, True)
-        
-      # Set the translation wheel angles and move
-        self.set_wheels_speed(0)
-        self.set_rotation_wheels_angles(np.pi / 2.0, np.pi / 2.0, 
-                                            np.pi / 2.0, np.pi / 2.0, True)
-        self.robot_go_forward(loc[1])
-        
-        self.set_wheels_speed(0)
-        self.set_rotation_wheels_angles(np.pi , np.pi , 
-                                            np.pi , np.pi , True) 
-        self.robot_go_forward(-loc[0])
-
-
-    def grab_object(self, object_name: str) -> None:
-            """
-            grab the objects from the table A
-            """
-            if object_name == "left":
-                arm = 0
-                gripper = True
-            elif object_name == "right":
-                arm = 1
-                gripper = False
-            else:
-                print ("Error: Wrong string entered")
-
-            self.set_gripper(gripper, False, 20.0, True, 0.2)
-            self.set_arm_position(0.0, 0.5, 0.0, -1.0, 1.57, True, arm)
-            self.pos.update_hands(arm, True)
-            
-    def move_from_loc_to_another_table(self, loc: np.array)-> None:
-        """
-        move the robot with objects in hands from loc to another table B
-        """
-        loc_rb_burger = np.array([-1.44+0.9, 0, 0.76])
-        self.robot_go_forward(loc[0])
-        self.set_wheels_speed(0)
-        self.set_rotation_wheels_angles(np.pi / 2.0, np.pi / 2.0, 
-                                            np.pi / 2.0, np.pi / 2.0, True)
-        self.robot_go_forward(-loc[1])
-        self.robot_rotate(np.pi)
-        self.robot_go_forward(-loc_rb_burger[0])
-        #pr2.set_torso_height(0.2, True)
-    
-
-    def put_down_object(self, object_name: str)-> None:
-        """
-        put down the objects grabing by hands
-        """
-        if object_name == "left":
-            arm = 0
-            gripper = True
-            self.set_torso_height(0.1, True)
-            self.set_arm_position(0.0, 0.55, 0.0, -0.52, 1.57, False, arm)
-            self.set_gripper(gripper, True, 0.0, True, 0.5)
-
-              
-        elif object_name == "right":
-            arm = 1
-            gripper = False
-            self.set_torso_height(0.1, True)
-            self.set_arm_position(0.0, 0.55, 0.0, -0.52, 1.57, False, arm)
-            self.set_gripper(gripper, True, 0.0, True, 0.5)
-
-            
-        else:
-            print ("Error: Wrong string entered")
-
-        self.pos.update_hands(arm, True)
-    
-    # def back_arm(self, object_name: str)-> None:
-        # if object_name == "left":
-            # arm = 0
-        # else:
-            # arm = 1
-        # self.set_arm_position(0.0, 1.35, 0.0, -2.2, 1.57, False, arm)
-
-    
-        
-    def move_from_table_B_to_initial_position(self)-> None:
-        """
-        after putting things down for burger
-        go back to the initial position waiting for next call from the function
-        move_to_object_loc
-        """
-        loc_rb_burger = np.array([-1.44+0.9, 0, 0.76])
-        self.robot_rotate(np.pi)
-        self.robot_go_forward(-loc_rb_burger[0])
-
-        
-
-
-if __name__ == "__main__":
-    pr2 = PR2()
-    
-    ingredients = ['breadtop','beef','beef', 'tomato']
-    
-    for ingre in ingredients:
-        loc = np.zeros(3)
-        pr2.set_initial_arm_position("left")  
-        pr2.set_initial_arm_position("right")  
-        loc = pr2.locate_rb_position(ingre)  
-        pr2.move_to_object_location(loc)
-        pr2.grab_object("left")
-        pr2.grab_object("right")
-        pr2.move_from_loc_to_another_table(loc)
-        pr2.put_down_object('left')
-        pr2.put_down_object('right')
-        pr2.move_from_table_B_to_initial_position()
-
+# Main loop
+while True:
+    # Close the gripper with forcefeedback
+    pr2.set_gripper(True, False, 20.0, True)
+    pr2.set_gripper(False, False, 20.0, True)
+    # Lift the arms
+    pr2.set_arm_position(0.0, 0.5, 0.0, -1.0, 0.0, True, 0)
+    pr2.set_arm_position(0.0, 0.5, 0.0, -1.0, 0.0, True, 1)
+    # Go to the other table
+    print(pr2.get_orientation())
+    print(pr2.get_position())
+    pr2.robot_go_forward(-0.35)
+    pr2.robot_rotate(np.pi)
+    pr2.robot_go_forward(0.35)
+    print(pr2.get_orientation())
+    print(pr2.get_position())
+    # Move the arms down
+    pr2.set_arm_position(0.0, 0.5, 0.0, -0.5, 0.0, True, 0)
+    pr2.set_arm_position(0.0, 0.5, 0.0, -0.5, 0.0, True, 1)
+    # Open the grippers
+    pr2.set_gripper(True, True, 0.0, True)
+    pr2.set_gripper(False, True, 0.0, True)
+    break
