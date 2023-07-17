@@ -6,11 +6,6 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/Parquetry.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/tables/protos/Table.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/clearpath/pr2/protos/Pr2.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/chairs/protos/WoodenChair.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/kitchen/utensils/protos/Fork.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/kitchen/utensils/protos/Knife.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/kitchen/utensils/protos/Plate.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/drinks/protos/Can.proto"
 
 WorldInfo {
   info [
@@ -27,8 +22,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.22161932966265077 0.6520977165126797 -0.725019614106285 0.8766672999289621
-  position -0.672244949058229 1.7995649442556638 2.6012093965203404
+  orientation 0.6521367426128715 -3.63498025948136e-05 -0.7581013570842393 3.1416728300731958
+  position 0.9919742871419832 -0.11727120072803943 7.751705542428795
 }
 TexturedBackground {
 }
@@ -37,32 +32,16 @@ TexturedBackgroundLight {
 Floor {
   tileSize 1 1
   appearance Parquetry {
-    type "light strip"
-  }
-}
-Solid {
-  translation -1.490000001941417 0.06000000000000107 0.8035285010450037
-  rotation -5.599829497770338e-07 -0.9999999999998432 -3.862420289886685e-11 7.394532842768862e-08
-  children [
-    DEF table_mat Shape {
-      geometry Box {
-        size 0.3 0.5 0.05
-      }
-    }
-  ]
-  name "table mat"
-  boundingObject USE table_mat
-  physics Physics {
   }
 }
 Table {
-  translation 1.55 -1.4273e-22 2.77556e-17
+  translation 1.55 0 0
   rotation -2.9110807192479472e-08 0.013910303436853236 0.9999032470485799 -5.307179586466759e-06
-  size 1 3 0.78
+  size 1 3 0.64
 }
 Solid {
-  translation 1.4399077740965365 0.4200060001086513 0.7998328274993902
-  rotation 0.3530682336005966 -0.9355879105790957 0.004252528706137813 0.00105077403849038
+  translation 1.4399984443276095 0.4200990210991783 0.6996696719611021
+  rotation -0.9998751273108464 -0.0158024704757978 -0.00010822190348982994 0.0016597602286939966
   children [
     DEF Vegetable Group {
       children [
@@ -71,11 +50,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0 1 0.2
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/lettuce.jpg"
-                  ]
-                }
                 roughness 0.2
                 metalness 0.2
               }
@@ -89,11 +63,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0 1 0.2
-            baseColorMap ImageTexture {
-              url [
-                "textures/lettuce.jpg"
-              ]
-            }
             roughness 0.2
             metalness 0.2
           }
@@ -112,8 +81,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.4399739380800185 0.4199924774709878 0.8396309656811279
-  rotation 0.3459921194574949 -0.9382294370161004 0.0038699857572974707 0.0010231134950340142
+  translation 1.4399973954904202 0.42016557416778644 0.739508046471851
+  rotation -0.9998751311625584 -0.01580223569279835 -0.00010691008276388786 0.0016684542054274901
   children [
     DEF Vegetable Group {
       children [
@@ -122,11 +91,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0 1 0.2
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/lettuce.jpg"
-                  ]
-                }
                 roughness 0.2
                 metalness 0.2
               }
@@ -140,11 +104,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0 1 0.2
-            baseColorMap ImageTexture {
-              url [
-                "textures/lettuce.jpg"
-              ]
-            }
             roughness 0.2
             metalness 0.2
           }
@@ -163,8 +122,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.4399405251445918 0.41997946232616157 0.8794693947860655
-  rotation 0.3369531301927553 -0.9415143961846839 0.003637283367295265 0.0009961001819645617
+  translation 1.4399963416237378 0.4202324459387504 0.7793868133517672
+  rotation -0.9998751333275495 -0.01580210429082349 -0.0001060810863061376 0.0016733701972804502
   children [
     DEF Vegetable Group {
       children [
@@ -173,11 +132,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0 1 0.2
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/lettuce.jpg"
-                  ]
-                }
                 roughness 0.2
                 metalness 0.2
               }
@@ -191,8 +145,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0 1 0.2
-            baseColorMap ImageTexture {
-            }
             roughness 0.2
             metalness 0.2
           }
@@ -211,8 +163,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.439895371249259 0.4199565392779036 0.9193481977082772
-  rotation 0.3270211494212397 -0.9449613494609693 -0.010257478058220186 0.0009662575995669162
+  translation 1.4399952847584627 0.4202995075039855 0.8193059728137638
+  rotation -0.999875134268501 -0.01580204609316381 -0.00010588114288371537 0.001675567625326448
   children [
     DEF Vegetable Group {
       children [
@@ -221,11 +173,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0 1 0.2
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/lettuce.jpg"
-                  ]
-                }
                 roughness 0.2
                 metalness 0.2
               }
@@ -239,11 +186,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0 1 0.2
-            baseColorMap ImageTexture {
-              url [
-                "textures/lettuce.jpg"
-              ]
-            }
             roughness 0.2
             metalness 0.2
           }
@@ -262,8 +204,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.4409268291315063 0.42067606317080497 0.9592686024157687
-  rotation 0.3218919238921707 -0.9467262499919109 -0.009746635791451947 0.0009544914227247286
+  translation 1.439994226261296 0.42036667212356593 0.8592655242575223
+  rotation -0.9998751345031517 -0.015802031573400648 -0.00010583221461825951 0.0016761176578766145
   children [
     DEF Vegetable Group {
       children [
@@ -272,11 +214,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0 1 0.2
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/lettuce.jpg"
-                  ]
-                }
                 roughness 0.2
                 metalness 0.2
               }
@@ -290,11 +227,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0 1 0.2
-            baseColorMap ImageTexture {
-              url [
-                "textures/lettuce.jpg"
-              ]
-            }
             roughness 0.2
             metalness 0.2
           }
@@ -313,8 +245,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.4404854320436062 0.42049759338805787 0.9992277785926325
-  rotation 0.32215017572551125 -0.9466210776820653 -0.011304847105004484 0.0009586163660160908
+  translation 1.4399994854495841 0.4200329572410279 0.6598716895427836
+  rotation -0.9998751212471114 -0.015802843365167556 -0.00010978456330016482 0.0016462414303137058
   children [
     DEF Vegetable Group {
       children [
@@ -323,11 +255,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0 1 0.2
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/lettuce.jpg"
-                  ]
-                }
                 roughness 0.2
                 metalness 0.2
               }
@@ -341,11 +268,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0 1 0.2
-            baseColorMap ImageTexture {
-              url [
-                "textures/lettuce.jpg"
-              ]
-            }
             roughness 0.2
             metalness 0.2
           }
@@ -364,18 +286,14 @@ Solid {
   }
 }
 Table {
-  translation -1.5 1.64857e-19 2.77556e-17
+  translation -1.5 0 0
   rotation -2.9110807192479472e-08 0.013910303436853236 0.9999032470485799 -5.307179586466759e-06
   name "table 2"
-  size 1 3 0.78
-}
-Plate {
-  translation -1.8300000001835184 0.05000000000000011 0.7799705506430842
-  rotation 0.021354725025680667 -0.9997719617561645 -1.4328578328905799e-05 8.722387643882291e-14
+  size 1 3 0.7
 }
 Solid {
-  translation 1.4399988763120977 0.7800038505515209 0.7997742972105368
-  rotation -0.6480612460693721 -0.7615779988735006 -0.003946260869131303 0.00026778725297427273
+  translation 1.4399994854495541 0.7800329572442259 0.6598716895541727
+  rotation -0.9998751212570373 -0.015802842737105992 -0.00010978456794346434 0.0016462415949798298
   children [
     DEF Bread_up Group {
       children [
@@ -384,11 +302,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0.8 0.4 0.2
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/bread.jpeg"
-                  ]
-                }
                 roughness 0.5
                 metalness 0.2
               }
@@ -402,11 +315,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0.8 0.4 0.2
-            baseColorMap ImageTexture {
-              url [
-                "textures/bread.jpeg"
-              ]
-            }
             roughness 0.5
             metalness 0.2
             textureTransform TextureTransform {
@@ -427,8 +335,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.440055869664594 0.7800118939645875 0.8395723321853527
-  rotation -0.6283100327594953 -0.7779583086779919 -0.0027152702701887 0.0003042973823339191
+  translation 1.4399984443275153 0.7800990211089653 0.6996696719724801
+  rotation -0.9998751273207719 -0.01580246984774443 -0.00010822190851430213 0.0016597603947083152
   children [
     DEF Bread_up Group {
       children [
@@ -437,11 +345,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0.8 0.4 0.2
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/bread.jpeg"
-                  ]
-                }
                 roughness 0.5
                 metalness 0.2
               }
@@ -455,11 +358,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0.8 0.4 0.2
-            baseColorMap ImageTexture {
-              url [
-                "textures/bread.jpeg"
-              ]
-            }
             roughness 0.5
             metalness 0.2
             textureTransform TextureTransform {
@@ -480,8 +378,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.4400952621612813 0.780019025359166 0.8794107626488793
-  rotation -0.6061465281418198 -0.7953299016378711 -0.006060856565914697 0.00034411858925896267
+  translation 1.4399973954902625 0.7801655741842116 0.7395080464832179
+  rotation -0.9998751311724831 -0.015802235064794376 -0.00010691008838179654 0.0016684543723090117
   children [
     DEF Bread_up Group {
       children [
@@ -490,11 +388,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0.8 0.4 0.2
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/bread.jpeg"
-                  ]
-                }
                 roughness 0.5
                 metalness 0.2
               }
@@ -508,11 +401,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0.8 0.4 0.2
-            baseColorMap ImageTexture {
-              url [
-                "textures/bread.jpeg"
-              ]
-            }
             roughness 0.5
             metalness 0.2
             textureTransform TextureTransform {
@@ -533,8 +421,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.439157251557556 0.7803711418389244 0.9192892379127076
-  rotation -0.5991822706828193 -0.797619463832602 -0.06916500137188991 0.0003627821182374928
+  translation 1.4399963416235173 0.7802324459618463 0.7793868133631229
+  rotation -0.999875133337473 -0.015802103662890362 -0.00010608109137663807 0.0016733703646524605
   children [
     DEF Bread_up Group {
       children [
@@ -543,11 +431,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0.8 0.4 0.2
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/bread.jpeg"
-                  ]
-                }
                 roughness 0.5
                 metalness 0.2
               }
@@ -561,11 +444,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0.8 0.4 0.2
-            baseColorMap ImageTexture {
-              url [
-                "textures/bread.jpeg"
-              ]
-            }
             roughness 0.5
             metalness 0.2
             textureTransform TextureTransform {
@@ -586,8 +464,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.4393515871403386 0.7803805259111772 0.959208502237479
-  rotation -0.6048373547920636 -0.7933120907027461 -0.06948165939999837 0.0003595000956676971
+  translation 1.439995284758179 0.7802995075337713 0.8193059728251082
+  rotation -0.9998751342784261 -0.015802045465131875 -0.00010588114791727928 0.0016755677929176586
   children [
     DEF Bread_up Group {
       children [
@@ -596,11 +474,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0.8 0.4 0.2
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/bread.jpeg"
-                  ]
-                }
                 roughness 0.5
                 metalness 0.2
               }
@@ -614,11 +487,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0.8 0.4 0.2
-            baseColorMap ImageTexture {
-              url [
-                "textures/bread.jpeg"
-              ]
-            }
             roughness 0.5
             metalness 0.2
             textureTransform TextureTransform {
@@ -639,8 +507,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.4393860178270468 0.7803889265886528 0.9991681167688119
-  rotation -0.6053723430825216 -0.7929002008454584 -0.06952408021692522 0.0003591852381635241
+  translation 1.4399942262609486 0.7803666721600511 0.8592655242688554
+  rotation -0.9998751345130781 -0.015802030945264233 -0.00010583221964667146 0.0016761178255225758
   children [
     DEF Bread_up Group {
       children [
@@ -649,11 +517,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0.8 0.4 0.2
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/bread.jpeg"
-                  ]
-                }
                 roughness 0.5
                 metalness 0.2
               }
@@ -667,11 +530,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0.8 0.4 0.2
-            baseColorMap ImageTexture {
-              url [
-                "textures/bread.jpeg"
-              ]
-            }
             roughness 0.5
             metalness 0.2
             textureTransform TextureTransform {
@@ -692,8 +550,50 @@ Solid {
   }
 }
 Solid {
-  translation 1.4400003590535346 0.05996139808311853 0.7999005692026523
-  rotation 0.9999973309734044 0.0023025591360035197 -0.00019044026042317025 0.0019217620850567757
+  translation 1.4399998697340612 -1.0199888556529413 0.6599626546261167
+  rotation -0.9999309378514952 -0.011752421075452123 -1.1238090208089164e-05 0.0005495430520212304
+  children [
+    DEF Bread_down Group {
+      children [
+        Transform {
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.8 0.4 0.2
+                roughness 0.5
+                metalness 0.2
+              }
+              geometry Cylinder {
+                height 0.005
+                radius 0.115
+              }
+            }
+          ]
+        }
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8 0.4 0.2
+            roughness 0.5
+            metalness 0.2
+            textureTransform TextureTransform {
+            }
+          }
+          geometry Cylinder {
+            height 0.04
+            radius 0.07
+          }
+        }
+      ]
+    }
+  ]
+  name "Bread down"
+  boundingObject USE Bread_down
+  physics Physics {
+  }
+}
+Solid {
+  translation 1.4399994854496148 0.06003295723783002 0.6598716895313905
+  rotation -0.999875121237164 -0.015802843994581338 -0.00010978455872710953 0.001646241265641444
   children [
     DEF Meat Group {
       children [
@@ -702,11 +602,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0.5 0.3 0.3
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/beef.jpg"
-                  ]
-                }
                 roughness 0.5
                 metalness 0.2
               }
@@ -720,11 +615,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0.5 0.3 0.3
-            baseColorMap ImageTexture {
-              url [
-                "textures/beef.jpg"
-              ]
-            }
             roughness 0.5
             metalness 0.2
             textureTransform TextureTransform {
@@ -745,8 +635,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.4400012108369455 0.05988654015989416 0.8396984937650305
-  rotation 0.9999920960583958 0.0039555507683640455 -0.0004017945432055043 0.001925615526469518
+  translation 1.4399984443277034 0.06009902108939036 0.6996696719497201
+  rotation -0.9998751273008977 -0.015802471105315536 -0.00010822189864390603 0.0016597600626732326
   children [
     DEF Meat Group {
       children [
@@ -755,11 +645,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0.5 0.3 0.3
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/beef.jpg"
-                  ]
-                }
                 roughness 0.5
                 metalness 0.2
               }
@@ -773,11 +658,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0.5 0.3 0.3
-            baseColorMap ImageTexture {
-              url [
-                "textures/beef.jpg"
-              ]
-            }
             roughness 0.5
             metalness 0.2
             textureTransform TextureTransform {
@@ -798,8 +678,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.4400018364858915 0.05981099997065427 0.8795368184506829
-  rotation 0.9999859755609685 0.005287372087972995 -0.0003039371341639852 0.00192548574306689
+  translation 1.439997395490575 0.06016557415135991 0.7395080464604803
+  rotation -0.9998751311526125 -0.01580223632216568 -0.00010691007726078214 0.0016684540385395524
   children [
     DEF Meat Group {
       children [
@@ -808,11 +688,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0.5 0.3 0.3
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/beef.jpg"
-                  ]
-                }
                 roughness 0.5
                 metalness 0.2
               }
@@ -826,11 +701,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0.5 0.3 0.3
-            baseColorMap ImageTexture {
-              url [
-                "textures/beef.jpg"
-              ]
-            }
             roughness 0.5
             metalness 0.2
             textureTransform TextureTransform {
@@ -851,8 +721,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.440002392603116 0.05973512774706793 0.919415543758782
-  rotation 0.999979966009924 0.006327644081267173 -0.0001688169778110564 0.001922326184762166
+  translation 1.4399963416239576 0.06023244591565335 0.7793868133404077
+  rotation -0.9998751333176026 -0.01580210492025187 -0.00010608108133088219 0.0016733700299023711
   children [
     DEF Meat Group {
       children [
@@ -861,11 +731,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0.5 0.3 0.3
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/beef.jpg"
-                  ]
-                }
                 roughness 0.5
                 metalness 0.2
               }
@@ -879,11 +744,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0.5 0.3 0.3
-            baseColorMap ImageTexture {
-              url [
-                "textures/beef.jpg"
-              ]
-            }
             roughness 0.5
             metalness 0.2
             textureTransform TextureTransform {
@@ -904,8 +764,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.4400029410128334 0.0596591997117448 0.9593346700797792
-  rotation 0.9999746465217341 0.007119093644952888 -0.00015754176413589296 0.001917066121184049
+  translation 1.4399952847587447 0.0602995074741988 0.8193059728024156
+  rotation -0.9998751342585542 -0.01580204672258749 -0.00010588113791803321 0.0016755674577291645
   children [
     DEF Meat Group {
       children [
@@ -914,11 +774,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0.5 0.3 0.3
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/beef.jpg"
-                  ]
-                }
                 roughness 0.5
                 metalness 0.2
               }
@@ -932,11 +787,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0.5 0.3 0.3
-            baseColorMap ImageTexture {
-              url [
-                "textures/beef.jpg"
-              ]
-            }
             roughness 0.5
             metalness 0.2
             textureTransform TextureTransform {
@@ -957,8 +807,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.440060612648329 0.05999753933984603 0.9992949901471879
-  rotation 0.8999202388418939 0.006305021509416107 0.43600895681914015 0.002126796397220993
+  translation 1.4399942262616432 0.06036667208707934 0.8592655242461853
+  rotation -0.9998751344932049 -0.015802032202823543 -0.00010583220963998628 0.0016761174902245315
   children [
     DEF Meat Group {
       children [
@@ -967,11 +817,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 0.5 0.3 0.3
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/beef.jpg"
-                  ]
-                }
                 roughness 0.5
                 metalness 0.2
               }
@@ -985,11 +830,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 0.5 0.3 0.3
-            baseColorMap ImageTexture {
-              url [
-                "textures/beef.jpg"
-              ]
-            }
             roughness 0.5
             metalness 0.2
             textureTransform TextureTransform {
@@ -1010,8 +850,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.44001 -0.299994 0.799543
-  rotation -0.8813768820294927 0.47241087078102684 0.0016616232669915058 0.00048532374461416066
+  translation 1.4399998711557915 -0.29998885565659544 0.6599626546574248
+  rotation -0.999932452215798 -0.011622860250603585 -1.119355724803126e-05 0.0005495420226385826
   children [
     DEF Cheese Group {
       children [
@@ -1020,11 +860,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 1 1 0
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/chesse.jpeg"
-                  ]
-                }
                 roughness 0.5
                 metalness 0.2
               }
@@ -1038,11 +873,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 1 1 0
-            baseColorMap ImageTexture {
-              url [
-                "textures/chesse.jpeg"
-              ]
-            }
             roughness 0.5
             metalness 0.2
             textureTransform TextureTransform {
@@ -1062,268 +892,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.4400145412428247 -0.29997844195870865 0.8391447534211187
-  rotation -0.8806935600770289 0.4736843640167241 0.0014058893699639846 0.0004916011240215952
-  children [
-    DEF Cheese Group {
-      children [
-        Transform {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 1 1 0
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/chesse.jpeg"
-                  ]
-                }
-                roughness 0.5
-                metalness 0.2
-              }
-              geometry Cylinder {
-                height 0.005
-                radius 0.115
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 1 1 0
-            baseColorMap ImageTexture {
-              url [
-                "textures/chesse.jpeg"
-              ]
-            }
-            roughness 0.5
-            metalness 0.2
-            textureTransform TextureTransform {
-            }
-          }
-          geometry Cylinder {
-            height 0.04
-            radius 0.07
-          }
-        }
-      ]
-    }
-  ]
-  name "Cheese (1)"
-  boundingObject USE Cheese
-  physics Physics {
-  }
-}
-Solid {
-  translation 1.440024277232587 -0.2999687913990552 0.8788216078546139
-  rotation -0.8803552997238396 0.4743142609988577 0.0007266782341988559 0.0004957931679345696
-  children [
-    DEF Cheese Group {
-      children [
-        Transform {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 1 1 0
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/chesse.jpeg"
-                  ]
-                }
-                roughness 0.5
-                metalness 0.2
-              }
-              geometry Cylinder {
-                height 0.005
-                radius 0.115
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 1 1 0
-            baseColorMap ImageTexture {
-              url [
-                "textures/chesse.jpeg"
-              ]
-            }
-            roughness 0.5
-            metalness 0.2
-            textureTransform TextureTransform {
-            }
-          }
-          geometry Cylinder {
-            height 0.04
-            radius 0.07
-          }
-        }
-      ]
-    }
-  ]
-  name "Cheese (2)"
-  boundingObject USE Cheese
-  physics Physics {
-  }
-}
-Solid {
-  translation 1.44003405129321 -0.2999514525647481 0.9185792456991355
-  rotation -0.8802714845412302 0.4744670771441692 -0.00176244428224129 0.0004983509030488831
-  children [
-    DEF Cheese Group {
-      children [
-        Transform {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 1 1 0
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/chesse.jpeg"
-                  ]
-                }
-                roughness 0.5
-                metalness 0.2
-              }
-              geometry Cylinder {
-                height 0.005
-                radius 0.115
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 1 1 0
-            baseColorMap ImageTexture {
-              url [
-                "textures/chesse.jpeg"
-              ]
-            }
-            roughness 0.5
-            metalness 0.2
-            textureTransform TextureTransform {
-            }
-          }
-          geometry Cylinder {
-            height 0.04
-            radius 0.07
-          }
-        }
-      ]
-    }
-  ]
-  name "Cheese (3)"
-  boundingObject USE Cheese
-  physics Physics {
-  }
-}
-Solid {
-  translation 1.440043923945825 -0.29993317265271224 0.9584176695441545
-  rotation -0.8801953863636455 0.474607001856403 -0.0020677555535352646 0.0004993842733612743
-  children [
-    DEF Cheese Group {
-      children [
-        Transform {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 1 1 0
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/chesse.jpeg"
-                  ]
-                }
-                roughness 0.5
-                metalness 0.2
-              }
-              geometry Cylinder {
-                height 0.005
-                radius 0.115
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 1 1 0
-            baseColorMap ImageTexture {
-              url [
-                "textures/chesse.jpeg"
-              ]
-            }
-            roughness 0.5
-            metalness 0.2
-            textureTransform TextureTransform {
-            }
-          }
-          geometry Cylinder {
-            height 0.04
-            radius 0.07
-          }
-        }
-      ]
-    }
-  ]
-  name "Cheese (4)"
-  boundingObject USE Cheese
-  physics Physics {
-  }
-}
-Solid {
-  translation 1.4400522035218712 -0.2999232328167605 0.9983368838464988
-  rotation -0.8801165823814378 0.47466384912283777 0.00943566389343128 0.0004996120152795391
-  children [
-    DEF Cheese Group {
-      children [
-        Transform {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 1 1 0
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/chesse.jpeg"
-                  ]
-                }
-                roughness 0.5
-                metalness 0.2
-              }
-              geometry Cylinder {
-                height 0.005
-                radius 0.115
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 1 1 0
-            baseColorMap ImageTexture {
-              url [
-                "textures/chesse.jpeg"
-              ]
-            }
-            roughness 0.5
-            metalness 0.2
-            textureTransform TextureTransform {
-            }
-          }
-          geometry Cylinder {
-            height 0.04
-            radius 0.07
-          }
-        }
-      ]
-    }
-  ]
-  name "Cheese (5)"
-  boundingObject USE Cheese
-  physics Physics {
-  }
-}
-Solid {
-  translation 1.4400025479819953 -0.6600233197392368 0.7995983952618503
-  rotation 0.9945340024490205 0.10441178964878974 0.0005442013125633064 0.001197429014154059
+  translation 1.4399998704449142 -0.6599888556547541 0.6599626546417761
+  rotation -0.9999316971177523 -0.011687641910023194 -1.1215824182040732e-05 0.0005495425369161681
   children [
     DEF Tomato Group {
       children [
@@ -1332,11 +902,6 @@ Solid {
             Shape {
               appearance PBRAppearance {
                 baseColor 1 0 0
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/tomato.jpg"
-                  ]
-                }
                 roughness 0.5
                 metalness 0.2
               }
@@ -1350,11 +915,6 @@ Solid {
         Shape {
           appearance PBRAppearance {
             baseColor 1 0 0
-            baseColorMap ImageTexture {
-              url [
-                "textures/tomato.jpg"
-              ]
-            }
             roughness 0.5
             metalness 0.2
             textureTransform TextureTransform {
@@ -1373,287 +933,7 @@ Solid {
   physics Physics {
   }
 }
-Solid {
-  translation 1.4400076026864772 -0.660067012144976 0.8391944400366693
-  rotation 0.994389008342839 0.1057787837543225 0.0011614621826092659 0.001200934095894608
-  children [
-    DEF Tomato Group {
-      children [
-        Transform {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 1 0 0
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/tomato.jpg"
-                  ]
-                }
-                roughness 0.5
-                metalness 0.2
-              }
-              geometry Cylinder {
-                height 0.005
-                radius 0.115
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 1 0 0
-            baseColorMap ImageTexture {
-              url [
-                "textures/tomato.jpg"
-              ]
-            }
-            roughness 0.5
-            metalness 0.2
-            textureTransform TextureTransform {
-            }
-          }
-          geometry Cylinder {
-            height 0.04
-            radius 0.07
-          }
-        }
-      ]
-    }
-  ]
-  name "Tomato (1)"
-  boundingObject USE Tomato
-  physics Physics {
-  }
-}
-Solid {
-  translation 1.4400130100634572 -0.6601204338182448 0.8788712613514639
-  rotation 0.9942387030768175 0.10716383258469961 0.002305274362489862 0.001197536656385182
-  children [
-    DEF Tomato Group {
-      children [
-        Transform {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 1 0 0
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/tomato.jpg"
-                  ]
-                }
-                roughness 0.5
-                metalness 0.2
-              }
-              geometry Cylinder {
-                height 0.005
-                radius 0.115
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 1 0 0
-            baseColorMap ImageTexture {
-              url [
-                "textures/tomato.jpg"
-              ]
-            }
-            roughness 0.5
-            metalness 0.2
-            textureTransform TextureTransform {
-            }
-          }
-          geometry Cylinder {
-            height 0.04
-            radius 0.07
-          }
-        }
-      ]
-    }
-  ]
-  name "Tomato (2)"
-  boundingObject USE Tomato
-  physics Physics {
-  }
-}
-Solid {
-  translation 1.44001824747269 -0.6601664429872001 0.9186288784605424
-  rotation 0.9940821761509341 0.10859327592199905 0.0028508741732810304 0.0011884936472708646
-  children [
-    DEF Tomato Group {
-      children [
-        Transform {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 1 0 0
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/tomato.jpg"
-                  ]
-                }
-                roughness 0.5
-                metalness 0.2
-              }
-              geometry Cylinder {
-                height 0.005
-                radius 0.115
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 1 0 0
-            baseColorMap ImageTexture {
-              url [
-                "textures/tomato.jpg"
-              ]
-            }
-            roughness 0.5
-            metalness 0.2
-            textureTransform TextureTransform {
-            }
-          }
-          geometry Cylinder {
-            height 0.04
-            radius 0.07
-          }
-        }
-      ]
-    }
-  ]
-  name "Tomato (3)"
-  boundingObject USE Tomato
-  physics Physics {
-  }
-}
-Solid {
-  translation 1.4400234556029148 -0.6602106434769633 0.958467283581876
-  rotation 0.9939223270381017 0.11004311591835193 0.0029867129331161957 0.0011758074453156828
-  children [
-    DEF Tomato Group {
-      children [
-        Transform {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 1 0 0
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/tomato.jpg"
-                  ]
-                }
-                roughness 0.5
-                metalness 0.2
-              }
-              geometry Cylinder {
-                height 0.005
-                radius 0.115
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 1 0 0
-            baseColorMap ImageTexture {
-              url [
-                "textures/tomato.jpg"
-              ]
-            }
-            roughness 0.5
-            metalness 0.2
-            textureTransform TextureTransform {
-            }
-          }
-          geometry Cylinder {
-            height 0.04
-            radius 0.07
-          }
-        }
-      ]
-    }
-  ]
-  name "Tomato (4)"
-  boundingObject USE Tomato
-  physics Physics {
-  }
-}
-Solid {
-  translation 1.4400285527597085 -0.6597799991756699 0.9983870278094271
-  rotation 0.9938430674915243 0.11078430523582646 0.0016717991664420171 0.0011687089209395929
-  children [
-    DEF Tomato Group {
-      children [
-        Transform {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 1 0 0
-                baseColorMap ImageTexture {
-                  url [
-                    "textures/tomato.jpg"
-                  ]
-                }
-                roughness 0.5
-                metalness 0.2
-              }
-              geometry Cylinder {
-                height 0.005
-                radius 0.115
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 1 0 0
-            baseColorMap ImageTexture {
-              url [
-                "textures/tomato.jpg"
-              ]
-            }
-            roughness 0.5
-            metalness 0.2
-            textureTransform TextureTransform {
-            }
-          }
-          geometry Cylinder {
-            height 0.04
-            radius 0.07
-          }
-        }
-      ]
-    }
-  ]
-  name "Tomato (5)"
-  boundingObject USE Tomato
-  physics Physics {
-  }
-}
 DEF pr2_robot Pr2 {
-  translation 5.146609477488587e-07 -3.0881013028503613e-07 -0.00011561460129667911
-  rotation -0.0062099572241480095 0.9999763587258684 0.0029526971784372452 0.0006409846524255543
   controller "pr2"
   supervisor TRUE
-}
-WoodenChair {
-  translation -2.0299997206739127 0.05000000023637293 -0.0008222396676043631
-  rotation 0.0008496922932718311 -0.9999996390114309 -1.2155573263702477e-07 0.0005631982388707787
-  physics Physics {
-  }
-}
-Fork {
-  translation -1.8100087736788355 0.19999999999997486 0.7811535478340206
-  rotation 6.677118788356042e-12 -1 9.956405539514886e-10 0.006986265946295967
-}
-Knife {
-  translation -1.8300899581093621 -0.10999992902756732 0.785843845372307
-  rotation -0.0019173315532188529 -0.999998159833992 6.456271918723672e-05 0.009937809467324461
-}
-Can {
-  translation -1.7100000000790054 -0.22 0.8410656512849675
-  rotation -0.07542642225237758 -0.9971505625758318 0.0012690078440569658 2.6856017843524958e-14
 }
