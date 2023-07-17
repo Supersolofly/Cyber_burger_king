@@ -2,14 +2,10 @@
 
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/clearpath/pr2/protos/Pr2.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/Floor.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/Parquetry.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/tables/protos/Table.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/clearpath/pr2/protos/Pr2.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/chairs/protos/WoodenChair.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/kitchen/utensils/protos/Knife.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/kitchen/utensils/protos/Fork.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/kitchen/utensils/protos/Plate.proto"
 
 WorldInfo {
   info [
@@ -26,12 +22,17 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.30142608003372506 0.5213537530537069 0.798331123314328 1.2535913616405627
-  position -1.9774988193734893 -1.654733144448738 2.204681553795532
+  orientation 0.007102285103591961 0.999898052289988 -0.012387193911292728 1.040887102448468
+  position -3.766130396276354 1.171624666102447 7.7886211720826175
+  follow "PR2"
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
+}
+Pr2 {
+  rotation 1 0 0 4.692820414042842e-06
+  controller "pr2"
 }
 Floor {
   tileSize 1 1
@@ -39,36 +40,39 @@ Floor {
   }
 }
 Table {
-  translation 1.55 0 0
+  translation 1.5 0 0
   rotation -2.9110807192479472e-08 0.013910303436853236 0.9999032470485799 -5.307179586466759e-06
-  size 1 3 0.64
+  size 1 3 0.74
 }
 Solid {
-  translation 1.440000472443315 0.42011139075925963 0.6996927673054303
-  rotation -0.999991742230377 0.004063158382058653 -7.883538200650889e-05 0.001859194625700348
+  translation 1.44 -1.02 0.8
+  rotation 1 0 0 4.692820414042842e-06
   children [
-    DEF Vegetable Group {
+    DEF Bread_up_1 Group {
       children [
         Transform {
+          translation 0 0 -0.02
           children [
             Shape {
               appearance PBRAppearance {
-                baseColor 0 1 0.2
-                roughness 0.2
+                baseColor 0.8 0.4 0.2
+                roughness 0.5
                 metalness 0.2
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
         }
         Shape {
           appearance PBRAppearance {
-            baseColor 0 1 0.2
-            roughness 0.2
+            baseColor 0.8 0.4 0.2
+            roughness 0.5
             metalness 0.2
+            textureTransform TextureTransform {
+            }
           }
           geometry Cylinder {
             height 0.04
@@ -78,38 +82,40 @@ Solid {
       ]
     }
   ]
-  name "Vegetable "
-  boundingObject USE Vegetable
+  name "Bread up 1(1)"
+  boundingObject USE Bread_up_1
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.4400007634299983 0.4201858514611417 0.739531083404495
-  rotation -0.9999926038333448 0.003845340779767515 -7.50526125775312e-05 0.0018614576277313781
+  translation 1.44 -1.02 0.84
+  rotation 1 0 0 4.692820414042842e-06
   children [
-    DEF Vegetable Group {
+    DEF Bread_up_1 Group {
       children [
         Transform {
+          translation 0 0 -0.02
           children [
             Shape {
               appearance PBRAppearance {
-                baseColor 0 1 0.2
-                roughness 0.2
+                baseColor 0.8 0.4 0.2
+                roughness 0.5
                 metalness 0.2
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
         }
         Shape {
           appearance PBRAppearance {
-            baseColor 0 1 0.2
-            roughness 0.2
+            baseColor 0.8 0.4 0.2
+            roughness 0.5
             metalness 0.2
+            textureTransform TextureTransform {
+            }
           }
           geometry Cylinder {
             height 0.04
@@ -119,38 +125,40 @@ Solid {
       ]
     }
   ]
-  name "Vegetable (2)"
-  boundingObject USE Vegetable
+  name "Bread up 1(2)"
+  boundingObject USE Bread_up_1
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.4400010419736466 0.42026040934303605 0.7794098030468062
-  rotation -0.999993126622465 0.003706929436544909 -7.336197480572321e-05 0.001862335319299418
+  translation 1.44 -1.02 0.88
+  rotation 1 0 0 4.692820414042842e-06
   children [
-    DEF Vegetable Group {
+    DEF Bread_up_1 Group {
       children [
         Transform {
+          translation 0 0 -0.02
           children [
             Shape {
               appearance PBRAppearance {
-                baseColor 0 1 0.2
-                roughness 0.2
+                baseColor 0.8 0.4 0.2
+                roughness 0.5
                 metalness 0.2
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
         }
         Shape {
           appearance PBRAppearance {
-            baseColor 0 1 0.2
-            roughness 0.2
+            baseColor 0.8 0.4 0.2
+            roughness 0.5
             metalness 0.2
+            textureTransform TextureTransform {
+            }
           }
           geometry Cylinder {
             height 0.04
@@ -160,38 +168,40 @@ Solid {
       ]
     }
   ]
-  name "Vegetable (3)"
-  boundingObject USE Vegetable
+  name "Bread up 1(3)"
+  boundingObject USE Bread_up_1
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.440001313325014 0.4203350225206854 0.8193289263914781
-  rotation -0.9999933883344904 0.0036356516201942876 -7.296987009873743e-05 0.0018624848886950262
+  translation 1.44 -1.02 0.92
+  rotation 1 0 0 4.692820414042842e-06
   children [
-    DEF Vegetable Group {
+    DEF Bread_up_1 Group {
       children [
         Transform {
+          translation 0 0 -0.02
           children [
             Shape {
               appearance PBRAppearance {
-                baseColor 0 1 0.2
-                roughness 0.2
+                baseColor 0.8 0.4 0.2
+                roughness 0.5
                 metalness 0.2
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
         }
         Shape {
           appearance PBRAppearance {
-            baseColor 0 1 0.2
-            roughness 0.2
+            baseColor 0.8 0.4 0.2
+            roughness 0.5
             metalness 0.2
+            textureTransform TextureTransform {
+            }
           }
           geometry Cylinder {
             height 0.04
@@ -201,38 +211,40 @@ Solid {
       ]
     }
   ]
-  name "Vegetable (4)"
-  boundingObject USE Vegetable
+  name "Bread up 1(4)"
+  boundingObject USE Bread_up_1
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.4400015822043888 0.4204096720432213 0.8592884535223234
-  rotation -0.9999934709372669 0.0036128616027630888 -7.289634213638226e-05 0.0018623989057533173
+  translation 1.44 -1.02 0.96
+  rotation 1 0 0 4.692820414042842e-06
   children [
-    DEF Vegetable Group {
+    DEF Bread_up_1 Group {
       children [
         Transform {
+          translation 0 0 -0.02
           children [
             Shape {
               appearance PBRAppearance {
-                baseColor 0 1 0.2
-                roughness 0.2
+                baseColor 0.8 0.4 0.2
+                roughness 0.5
                 metalness 0.2
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
         }
         Shape {
           appearance PBRAppearance {
-            baseColor 0 1 0.2
-            roughness 0.2
+            baseColor 0.8 0.4 0.2
+            roughness 0.5
             metalness 0.2
+            textureTransform TextureTransform {
+            }
           }
           geometry Cylinder {
             height 0.04
@@ -242,15 +254,14 @@ Solid {
       ]
     }
   ]
-  name "Vegetable (5)"
-  boundingObject USE Vegetable
+  name "Bread up 1(5)"
+  boundingObject USE Bread_up_1
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.4400001632323585 0.42003709846512 0.6598948544800863
-  rotation -0.999990460161229 0.004367180683216809 -8.555357309602352e-05 0.0018547327306540154
+  translation 1.44 0.42 0.76
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Vegetable Group {
       children [
@@ -264,7 +275,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -283,45 +294,225 @@ Solid {
       ]
     }
   ]
-  name "Vegetable (1)"
+  name "Vegetable 1"
   boundingObject USE Vegetable
   physics Physics {
-    density 500
+  }
+}
+Solid {
+  translation 1.44 0.42 0.8
+  rotation 1 0 0 4.692820414042842e-06
+  children [
+    DEF Vegetable Group {
+      children [
+        Transform {
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 1 0.2
+                roughness 0.2
+                metalness 0.2
+              }
+              geometry Cylinder {
+                height 0.005
+                radius 0.11
+              }
+            }
+          ]
+        }
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 0.2
+            roughness 0.2
+            metalness 0.2
+          }
+          geometry Cylinder {
+            height 0.04
+            radius 0.07
+          }
+        }
+      ]
+    }
+  ]
+  name "Vegetable 1(1)"
+  boundingObject USE Vegetable
+  physics Physics {
+  }
+}
+Solid {
+  translation 1.44 0.42 0.84
+  rotation 1 0 0 4.692820414042842e-06
+  children [
+    DEF Vegetable Group {
+      children [
+        Transform {
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 1 0.2
+                roughness 0.2
+                metalness 0.2
+              }
+              geometry Cylinder {
+                height 0.005
+                radius 0.11
+              }
+            }
+          ]
+        }
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 0.2
+            roughness 0.2
+            metalness 0.2
+          }
+          geometry Cylinder {
+            height 0.04
+            radius 0.07
+          }
+        }
+      ]
+    }
+  ]
+  name "Vegetable 1(2)"
+  boundingObject USE Vegetable
+  physics Physics {
+  }
+}
+Solid {
+  translation 1.44 0.42 0.88
+  rotation 1 0 0 4.692820414042842e-06
+  children [
+    DEF Vegetable Group {
+      children [
+        Transform {
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 1 0.2
+                roughness 0.2
+                metalness 0.2
+              }
+              geometry Cylinder {
+                height 0.005
+                radius 0.11
+              }
+            }
+          ]
+        }
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 0.2
+            roughness 0.2
+            metalness 0.2
+          }
+          geometry Cylinder {
+            height 0.04
+            radius 0.07
+          }
+        }
+      ]
+    }
+  ]
+  name "Vegetable 1(3)"
+  boundingObject USE Vegetable
+  physics Physics {
+  }
+}
+Solid {
+  translation 1.44 0.42 0.92
+  rotation 1 0 0 4.692820414042842e-06
+  children [
+    DEF Vegetable Group {
+      children [
+        Transform {
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 1 0.2
+                roughness 0.2
+                metalness 0.2
+              }
+              geometry Cylinder {
+                height 0.005
+                radius 0.11
+              }
+            }
+          ]
+        }
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 0.2
+            roughness 0.2
+            metalness 0.2
+          }
+          geometry Cylinder {
+            height 0.04
+            radius 0.07
+          }
+        }
+      ]
+    }
+  ]
+  name "Vegetable 1(4)"
+  boundingObject USE Vegetable
+  physics Physics {
+  }
+}
+Solid {
+  translation 1.44 0.42 0.96
+  rotation 1 0 0 4.692820414042842e-06
+  children [
+    DEF Vegetable Group {
+      children [
+        Transform {
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 1 0.2
+                roughness 0.2
+                metalness 0.2
+              }
+              geometry Cylinder {
+                height 0.005
+                radius 0.11
+              }
+            }
+          ]
+        }
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 0.2
+            roughness 0.2
+            metalness 0.2
+          }
+          geometry Cylinder {
+            height 0.04
+            radius 0.07
+          }
+        }
+      ]
+    }
+  ]
+  name "Vegetable 1(5)"
+  boundingObject USE Vegetable
+  physics Physics {
   }
 }
 Table {
-  translation -1.5 4.1408e-16 0.01
+  translation -1.5 0 0
   rotation -2.9110807192479472e-08 0.013910303436853236 0.9999032470485799 -5.307179586466759e-06
   name "table 2"
-  size 1 3 0.6
-}
-Plate {
-  translation -1.84 0 0.62
-  rotation 0 1 0 0
+  size 1 3 0.74
 }
 Solid {
-  translation -1.5 0 0.64
+  translation 1.44 0.78 0.76
+  rotation 1 0 0 4.692820414042842e-06
   children [
-    DEF bar_counter Shape {
-      appearance Appearance {
-      }
-      geometry Box {
-        size 0.3 0.7 0.05
-      }
-    }
-  ]
-  name "bar counter"
-  boundingObject USE bar_counter
-  physics Physics {
-  }
-}
-Solid {
-  translation 1.4400008366591235 0.7800346439782511 0.659888696369133
-  rotation -0.9997066910559 0.024218321990203268 -6.883343606851128e-05 0.0017315530474766596
-  children [
-    DEF Bread_up Group {
+    DEF Bread_down_1 Group {
       children [
         Transform {
+          translation 0 0 0.02
           children [
             Shape {
               appearance PBRAppearance {
@@ -331,7 +522,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -352,19 +543,19 @@ Solid {
       ]
     }
   ]
-  name "Bread up"
-  boundingObject USE Bread_up
+  name "Bread down 1"
+  boundingObject USE Bread_down_1
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.4400025090514472 0.7801047167802626 0.6996868465688338
-  rotation -0.9997157728961896 0.023840495295809602 -6.485849937834511e-05 0.001771005591731997
+  translation 1.44 0.78 0.8
+  rotation 1 0 0 4.692820414042842e-06
   children [
-    DEF Bread_up Group {
+    DEF Bread_down_1 Group {
       children [
         Transform {
+          translation 0 0 0.02
           children [
             Shape {
               appearance PBRAppearance {
@@ -374,7 +565,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -395,19 +586,19 @@ Solid {
       ]
     }
   ]
-  name "Bread up(1)"
-  boundingObject USE Bread_up
+  name "Bread down 1(1)"
+  boundingObject USE Bread_down_1
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.4400041927862794 0.7801761325829297 0.7395253510947999
-  rotation -0.9997216798923114 0.023591508724258296 -5.890168157312612e-05 0.001797482385787293
+  translation 1.44 0.78 0.84
+  rotation 1 0 0 4.692820414042842e-06
   children [
-    DEF Bread_up Group {
+    DEF Bread_down_1 Group {
       children [
         Transform {
+          translation 0 0 0.02
           children [
             Shape {
               appearance PBRAppearance {
@@ -417,7 +608,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -438,19 +629,19 @@ Solid {
       ]
     }
   ]
-  name "Bread up(2)"
-  boundingObject USE Bread_up
+  name "Bread down 1(2)"
+  boundingObject USE Bread_down_1
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.4400058842350714 0.780248419451059 0.7794042115406363
-  rotation -0.9997251393289721 0.02344445080255986 -5.9331555013616315e-05 0.001813155919461984
+  translation 1.44 0.78 0.88
+  rotation 1 0 0 4.692820414042842e-06
   children [
-    DEF Bread_up Group {
+    DEF Bread_down_1 Group {
       children [
         Transform {
+          translation 0 0 0.02
           children [
             Shape {
               appearance PBRAppearance {
@@ -460,7 +651,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -481,19 +672,19 @@ Solid {
       ]
     }
   ]
-  name "Bread up(3)"
-  boundingObject USE Bread_up
+  name "Bread down 1(3)"
+  boundingObject USE Bread_down_1
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.4400075806887882 0.780321198789084 0.8193234291422146
-  rotation -0.9997267908187147 0.02337392248144574 -5.8882470945318424e-05 0.0018205845192886968
+  translation 1.44 0.78 0.92
+  rotation 1 0 0 4.692820414042842e-06
   children [
-    DEF Bread_up Group {
+    DEF Bread_down_1 Group {
       children [
         Transform {
+          translation 0 0 0.02
           children [
             Shape {
               appearance PBRAppearance {
@@ -503,7 +694,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -524,19 +715,19 @@ Solid {
       ]
     }
   ]
-  name "Bread up(4)"
-  boundingObject USE Bread_up
+  name "Bread down 1(4)"
+  boundingObject USE Bread_down_1
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.4400092806415785 0.7803941999226252 0.8592830047764293
-  rotation -0.9997272695407969 0.02335343841330024 -5.8743332207403984e-05 0.0018226763806369506
+  translation -1.44 -0.01 0.76
+  rotation 1 0 0 4.692820414042842e-06
   children [
-    DEF Bread_up Group {
+    DEF Bread_down_1 Group {
       children [
         Transform {
+          translation 0 0 0.02
           children [
             Shape {
               appearance PBRAppearance {
@@ -546,7 +737,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -567,19 +758,19 @@ Solid {
       ]
     }
   ]
-  name "Bread up(5)"
-  boundingObject USE Bread_up
+  name "Bread down 1(5)"
+  boundingObject USE Bread_down_1
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.439999793645784 -1.019987747896485 0.6599655192626743
-  rotation -0.9998560958494828 -0.016964300006990278 -1.0858309739383818e-05 0.000605155797000444
+  translation 1.44 -1.02 0.76
+  rotation 1 0 0 4.692820414042842e-06
   children [
-    DEF Bread_down Group {
+    DEF Bread_up_1 Group {
       children [
         Transform {
+          translation 0 0 -0.02
           children [
             Shape {
               appearance PBRAppearance {
@@ -589,7 +780,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -610,224 +801,14 @@ Solid {
       ]
     }
   ]
-  name "Bread down"
-  boundingObject USE Bread_down
+  name "Bread up 1"
+  boundingObject USE Bread_up_1
   physics Physics {
   }
 }
 Solid {
-  translation 1.44 -1.01995 0.699966
-  rotation -0.9998560958494828 -0.016964300006990278 -1.0858309739383818e-05 0.000605155797000444
-  children [
-    DEF Bread_down Group {
-      children [
-        Transform {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 0.8 0.4 0.2
-                roughness 0.5
-                metalness 0.2
-              }
-              geometry Cylinder {
-                height 0.005
-                radius 0.115
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.8 0.4 0.2
-            roughness 0.5
-            metalness 0.2
-            textureTransform TextureTransform {
-            }
-          }
-          geometry Cylinder {
-            height 0.04
-            radius 0.07
-          }
-        }
-      ]
-    }
-  ]
-  name "Bread down(1)"
-  boundingObject USE Bread_down
-  physics Physics {
-  }
-}
-Solid {
-  translation 1.44 -1.01991 0.739966
-  rotation -0.9998560958494828 -0.016964300006990278 -1.0858309739383818e-05 0.000605155797000444
-  children [
-    DEF Bread_down Group {
-      children [
-        Transform {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 0.8 0.4 0.2
-                roughness 0.5
-                metalness 0.2
-              }
-              geometry Cylinder {
-                height 0.005
-                radius 0.115
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.8 0.4 0.2
-            roughness 0.5
-            metalness 0.2
-            textureTransform TextureTransform {
-            }
-          }
-          geometry Cylinder {
-            height 0.04
-            radius 0.07
-          }
-        }
-      ]
-    }
-  ]
-  name "Bread down(2)"
-  boundingObject USE Bread_down
-  physics Physics {
-  }
-}
-Solid {
-  translation 1.44 -1.01987 0.779966
-  rotation -0.9998560958494828 -0.016964300006990278 -1.0858309739383818e-05 0.000605155797000444
-  children [
-    DEF Bread_down Group {
-      children [
-        Transform {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 0.8 0.4 0.2
-                roughness 0.5
-                metalness 0.2
-              }
-              geometry Cylinder {
-                height 0.005
-                radius 0.115
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.8 0.4 0.2
-            roughness 0.5
-            metalness 0.2
-            textureTransform TextureTransform {
-            }
-          }
-          geometry Cylinder {
-            height 0.04
-            radius 0.07
-          }
-        }
-      ]
-    }
-  ]
-  name "Bread down(3)"
-  boundingObject USE Bread_down
-  physics Physics {
-  }
-}
-Solid {
-  translation 1.44 -1.01983 0.819966
-  rotation -0.9998560958494828 -0.016964300006990278 -1.0858309739383818e-05 0.000605155797000444
-  children [
-    DEF Bread_down Group {
-      children [
-        Transform {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 0.8 0.4 0.2
-                roughness 0.5
-                metalness 0.2
-              }
-              geometry Cylinder {
-                height 0.005
-                radius 0.115
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.8 0.4 0.2
-            roughness 0.5
-            metalness 0.2
-            textureTransform TextureTransform {
-            }
-          }
-          geometry Cylinder {
-            height 0.04
-            radius 0.07
-          }
-        }
-      ]
-    }
-  ]
-  name "Bread down(4)"
-  boundingObject USE Bread_down
-  physics Physics {
-  }
-}
-Solid {
-  translation 1.44 -1.0198 0.859966
-  rotation -0.9998560958494828 -0.016964300006990278 -1.0858309739383818e-05 0.000605155797000444
-  children [
-    DEF Bread_down Group {
-      children [
-        Transform {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 0.8 0.4 0.2
-                roughness 0.5
-                metalness 0.2
-              }
-              geometry Cylinder {
-                height 0.005
-                radius 0.115
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.8 0.4 0.2
-            roughness 0.5
-            metalness 0.2
-            textureTransform TextureTransform {
-            }
-          }
-          geometry Cylinder {
-            height 0.04
-            radius 0.07
-          }
-        }
-      ]
-    }
-  ]
-  name "Bread down(5)"
-  boundingObject USE Bread_down
-  physics Physics {
-  }
-}
-Solid {
-  translation 1.439998979086042 0.0600375156854736 0.6598966081524166
-  rotation -0.9996230246975966 -0.027455335112528016 -0.00011431661031986124 0.0018762856449353058
+  translation 1.44 0.06 0.76
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Meat Group {
       children [
@@ -841,7 +822,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -862,15 +843,14 @@ Solid {
       ]
     }
   ]
-  name "Meat "
+  name "Meat 1"
   boundingObject USE Meat
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.4399971448057671 0.060112975825841415 0.6996946156450216
-  rotation -0.9997703557749229 -0.021429494731983807 -0.0001116656449549751 0.0018973370867957976
+  translation 1.44 0.06 0.8
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Meat Group {
       children [
@@ -884,7 +864,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -905,15 +885,14 @@ Solid {
       ]
     }
   ]
-  name "Meat (1)"
+  name "Meat 1(1)"
   boundingObject USE Meat
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.4399956745899332 0.06018917336921248 0.7395330055870251
-  rotation -0.9998496064690174 -0.017342230794211544 -0.00010712063974698094 0.0019110971122022445
+  translation 1.44 0.06 0.84
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Meat Group {
       children [
@@ -927,7 +906,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -948,15 +927,14 @@ Solid {
       ]
     }
   ]
-  name "Meat (2)"
+  name "Meat 1(2)"
   boundingObject USE Meat
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.4399944443128345 0.06026584336992945 0.7794117788408127
-  rotation -0.9998893422491453 -0.014875914751939919 -0.00010206304143726624 0.0019190019185070272
+  translation 1.44 0.0599999 0.88
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Meat Group {
       children [
@@ -970,7 +948,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -991,15 +969,14 @@ Solid {
       ]
     }
   ]
-  name "Meat (3)"
+  name "Meat 1(3)"
   boundingObject USE Meat
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.4399933495655182 0.06034278176047023 0.8193309360531481
-  rotation -0.9999065374478506 -0.013671352580191316 -0.00010240936621154304 0.0019226053182842756
+  translation 1.44 0.06 0.92
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Meat Group {
       children [
@@ -1013,7 +990,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -1034,15 +1011,14 @@ Solid {
       ]
     }
   ]
-  name "Meat (4)"
+  name "Meat 1(4)"
   boundingObject USE Meat
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.4399923126085437 0.06041984852072727 0.8592904776787541
-  rotation -0.9999113812729404 -0.013312365655462916 -0.00010257434238678324 0.0019235500456265887
+  translation 1.44 0.06 0.96
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Meat Group {
       children [
@@ -1056,7 +1032,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -1077,15 +1053,14 @@ Solid {
       ]
     }
   ]
-  name "Meat (5)"
+  name "Meat 1(5)"
   boundingObject USE Meat
   physics Physics {
-    density 500
   }
 }
 Solid {
-  translation 1.44 -0.299991 0.659963
-  rotation -0.9999329220999016 -0.011582365996754584 -9.933238511231823e-06 0.0005448173054659437
+  translation 1.44 -0.3 0.76
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Cheese Group {
       children [
@@ -1099,7 +1074,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -1120,14 +1095,14 @@ Solid {
       ]
     }
   ]
-  name "Cheese "
+  name "Cheese 1"
   boundingObject USE Cheese
   physics Physics {
   }
 }
 Solid {
-  translation 1.44 -0.299971 0.699963
-  rotation -0.9999329220999016 -0.011582365996754584 -9.933238511231823e-06 0.0005448173054659437
+  translation 1.44 -0.3 0.8
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Cheese Group {
       children [
@@ -1141,7 +1116,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -1162,14 +1137,14 @@ Solid {
       ]
     }
   ]
-  name "Cheese (1)"
+  name "Cheese 1(1)"
   boundingObject USE Cheese
   physics Physics {
   }
 }
 Solid {
-  translation 1.44 -0.299951 0.739963
-  rotation -0.9999329220999016 -0.011582365996754584 -9.933238511231823e-06 0.0005448173054659437
+  translation 1.44 -0.3 0.84
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Cheese Group {
       children [
@@ -1183,7 +1158,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -1204,14 +1179,14 @@ Solid {
       ]
     }
   ]
-  name "Cheese (2)"
+  name "Cheese 1(2)"
   boundingObject USE Cheese
   physics Physics {
   }
 }
 Solid {
-  translation 1.44 -0.299931 0.779963
-  rotation -0.9999329220999016 -0.011582365996754584 -9.933238511231823e-06 0.0005448173054659437
+  translation 1.44 -0.3 0.88
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Cheese Group {
       children [
@@ -1225,7 +1200,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -1246,14 +1221,14 @@ Solid {
       ]
     }
   ]
-  name "Cheese (3)"
+  name "Cheese 1(3)"
   boundingObject USE Cheese
   physics Physics {
   }
 }
 Solid {
-  translation 1.44 -0.299911 0.819963
-  rotation -0.9999329220999016 -0.011582365996754584 -9.933238511231823e-06 0.0005448173054659437
+  translation 1.44 -0.3 0.92
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Cheese Group {
       children [
@@ -1267,7 +1242,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -1288,14 +1263,14 @@ Solid {
       ]
     }
   ]
-  name "Cheese (4)"
+  name "Cheese 1(4)"
   boundingObject USE Cheese
   physics Physics {
   }
 }
 Solid {
-  translation 1.44 -0.299891 0.859963
-  rotation -0.9999329220999016 -0.011582365996754584 -9.933238511231823e-06 0.0005448173054659437
+  translation 1.44 -0.3 0.96
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Cheese Group {
       children [
@@ -1309,7 +1284,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -1330,14 +1305,14 @@ Solid {
       ]
     }
   ]
-  name "Cheese (5)"
+  name "Cheese 1(5)"
   boundingObject USE Cheese
   physics Physics {
   }
 }
 Solid {
-  translation 1.4399999705770015 -0.6599871047375 0.6599666994029492
-  rotation -0.9999975702693406 -0.0022044102608699575 -5.5513006298197426e-06 0.0006373064144806975
+  translation 1.44 -0.66 0.76
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Tomato Group {
       children [
@@ -1351,7 +1326,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -1372,14 +1347,14 @@ Solid {
       ]
     }
   ]
-  name "Tomato "
+  name "Tomato 1"
   boundingObject USE Tomato
   physics Physics {
   }
 }
 Solid {
-  translation 1.44 -0.659963 0.699967
-  rotation -0.9999975702693406 -0.0022044102608699575 -5.5513006298197426e-06 0.0006373064144806975
+  translation 1.44 -0.66 0.8
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Tomato Group {
       children [
@@ -1393,7 +1368,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -1414,14 +1389,14 @@ Solid {
       ]
     }
   ]
-  name "Tomato (1)"
+  name "Tomato 1(1)"
   boundingObject USE Tomato
   physics Physics {
   }
 }
 Solid {
-  translation 1.44 -0.659939 0.739967
-  rotation -0.9999975702693406 -0.0022044102608699575 -5.5513006298197426e-06 0.0006373064144806975
+  translation 1.44 -0.66 0.84
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Tomato Group {
       children [
@@ -1435,7 +1410,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -1456,14 +1431,14 @@ Solid {
       ]
     }
   ]
-  name "Tomato (2)"
+  name "Tomato 1(2)"
   boundingObject USE Tomato
   physics Physics {
   }
 }
 Solid {
-  translation 1.44 -0.659915 0.779967
-  rotation -0.9999975702693406 -0.0022044102608699575 -5.5513006298197426e-06 0.0006373064144806975
+  translation 1.44 -0.66 0.88
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Tomato Group {
       children [
@@ -1477,7 +1452,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -1498,14 +1473,14 @@ Solid {
       ]
     }
   ]
-  name "Tomato (3)"
+  name "Tomato 1(3)"
   boundingObject USE Tomato
   physics Physics {
   }
 }
 Solid {
-  translation 1.44 -0.65989 0.819967
-  rotation -0.9999975702693406 -0.0022044102608699575 -5.5513006298197426e-06 0.0006373064144806975
+  translation 1.44 -0.66 0.92
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Tomato Group {
       children [
@@ -1519,7 +1494,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -1540,14 +1515,14 @@ Solid {
       ]
     }
   ]
-  name "Tomato (4)"
+  name "Tomato 1(4)"
   boundingObject USE Tomato
   physics Physics {
   }
 }
 Solid {
-  translation 1.44 -0.659866 0.859967
-  rotation -0.9999975702693406 -0.0022044102608699575 -5.5513006298197426e-06 0.0006373064144806975
+  translation 1.44 -0.66 0.96
+  rotation 1 0 0 4.692820414042842e-06
   children [
     DEF Tomato Group {
       children [
@@ -1561,7 +1536,7 @@ Solid {
               }
               geometry Cylinder {
                 height 0.005
-                radius 0.115
+                radius 0.11
               }
             }
           ]
@@ -1582,23 +1557,8 @@ Solid {
       ]
     }
   ]
-  name "Tomato (5)"
+  name "Tomato 1(5)"
   boundingObject USE Tomato
   physics Physics {
   }
-}
-DEF pr2_robot Pr2 {
-  translation 4.400862814979943e-07 3.5615764530900383e-07 -0.00011562590250526611
-  rotation 0.020132913561316294 0.9997847034813018 0.0050212026784442285 0.0005575428954873241
-  controller "pr2"
-}
-WoodenChair {
-  translation -2.03 0 0
-  rotation 0 1 0 0
-}
-Knife {
-  translation -1.87 0.21 0.62
-}
-Fork {
-  translation -1.84 -0.2 0.61
 }
