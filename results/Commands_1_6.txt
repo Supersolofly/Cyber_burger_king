@@ -1,0 +1,140 @@
+Commands 1 - 6:
+
+ChatGPT: 
+
+{
+  "task_cohesion": {
+    "task_sequence": ["take('right', 'bread')", "take('right', 'lettuce')", "rotate_180()", "put('right')", "take('right', 'beef')", "take('right', 'cheese')", "take('right', 'tomato')", "rotate_180()", "put('right')", "put('right')"],
+    "step_instructions": [
+      "Take the bread with your right hand",
+      "Take the lettuce with your right hand",
+      "Rotate 180 degrees",
+      "Put down the ingredient in your right hand",
+      "Take the beef with your right hand",
+      "Take the cheese with your right hand",
+      "Take the tomato with your right hand",
+      "Rotate 180 degrees",
+      "Put down the ingredient in your right hand",
+      "Put down the ingredient in your right hand"
+    ],
+    "object_names": ["bread", "lettuce", "beef", "cheese", "tomato"]
+  },
+  "environment_before": {
+    "tables": {
+      "ingredients_table": {
+        "bread": 6,
+        "lettuce": 6,
+        "beef": 6,
+        "cheese": 6,
+        "tomato": 6
+      },
+      "serving_table": {
+        "bread": 0,
+        "lettuce": 0,
+        "beef": 0,
+        "cheese": 0,
+        "tomato": 0
+      }
+    },
+    "ingredients_list": ["bread", "lettuce", "beef", "cheese", "tomato"]
+  },
+  "environment_after": {
+    "tables": {
+      "ingredients_table": {
+        "bread": 6,
+        "lettuce": 6,
+        "beef": 6,
+        "cheese": 6,
+        "tomato": 6
+      },
+      "serving_table": {
+        "bread": 0,
+        "lettuce": 0,
+        "beef": 0,
+        "cheese": 0,
+        "tomato": 0
+      }
+    },
+    "ingredients_list": ["bread", "lettuce", "beef", "cheese", "tomato"]
+  },
+  "instruction_summary": "Make me a burger.",
+  "question": ""
+}
+
+
+______________________________________
+
+
+User:
+You have to rotate after put first, before you can take again, and after two take commands you also have to put twice after rotation. Also you cannot grab two objects with one hand, so take with left hand and take with right hand would be a logical sequence, but take with right hand and take with right hand is not. Remember, that the robot has two hands and can therefore perform one take command with each before rotating, but cannot perform two take commmands with one hand before rotating and can also not perform more than one take command with each hand before rotating, so the total number of take commands before rotation cannot exceed two. The same goes for put.
+
+
+______________________________________
+
+
+ChatGPT:
+
+{
+  "task_cohesion": {
+    "task_sequence": ["take('right', 'bread')", "take('left', 'lettuce')", "rotate_180()", "put('right')", "put('left')", "take('right', 'beef')", "take('left', 'cheese')", "rotate_180()", "put('right')", "put('left')", "take('right', 'tomato')", "rotate_180()", "put('right')"],
+    "step_instructions": [
+      "Take the bread with your right hand",
+      "Take the lettuce with your left hand",
+      "Rotate 180 degrees",
+      "Put down the bread with your right hand",
+      "Put down the lettuce with your left hand",
+      "Take the beef with your right hand",
+      "Take the cheese with your left hand",
+      "Rotate 180 degrees",
+      "Put down the beef with your right hand",
+      "Put down the cheese with your left hand",
+      "Take the tomato with your right hand",
+      "Rotate 180 degrees",
+      "Put down the tomato with your right hand"
+    ],
+    "object_names": ["bread", "lettuce", "beef", "cheese", "tomato"]
+  },
+  "environment_before": {
+    "tables": {
+      "ingredients_table": {
+        "bread": 6,
+        "lettuce": 6,
+        "beef": 6,
+        "cheese": 6,
+        "tomato": 6
+      },
+      "serving_table": {
+        "bread": 0,
+        "lettuce": 0,
+        "beef": 0,
+        "cheese": 0,
+        "tomato": 0
+      }
+    },
+    "ingredients_list": ["bread", "lettuce", "beef", "cheese", "tomato"]
+  },
+  "environment_after": {
+    "tables": {
+      "ingredients_table": {
+        "bread": 6,
+        "lettuce": 6,
+        "beef": 6,
+        "cheese": 6,
+        "tomato": 6
+      },
+      "serving_table": {
+        "bread": 0,
+        "lettuce": 0,
+        "beef": 0,
+        "cheese": 0,
+        "tomato": 0
+      }
+    },
+    "ingredients_list": ["bread", "lettuce", "beef", "cheese", "tomato"]
+  },
+  "instruction_summary": "Make me a burger.",
+  "question": ""
+}
+
+
+

@@ -1,0 +1,398 @@
+Commands 1 - 7:
+
+ChatGPT: 
+
+{
+  "task_cohesion": {
+    "task_sequence": [
+      "take('left', 'bread')",
+      "take('right', 'beef')",
+      "rotate_180()",
+      "put('left')",
+      "put('right')",
+      "rotate_180()"
+    ],
+    "step_instructions": [
+      "Take the bread with the left hand.",
+      "Take the beef with the right hand.",
+      "Rotate 180 degrees.",
+      "Put down the bread with the left hand.",
+      "Put down the beef with the right hand.",
+      "Rotate 180 degrees."
+    ],
+    "object_names": ["bread", "beef"]
+  },
+  "environment_before": {
+    "tables": {
+      "ingredients_table": {
+        "bread": 6,
+        "lettuce": 6,
+        "beef": 6,
+        "cheese": 6,
+        "tomato": 6
+      },
+      "serving_table": {
+        "bread": 0,
+        "lettuce": 0,
+        "beef": 0,
+        "cheese": 0,
+        "tomato": 0
+      }
+    },
+    "ingredients_list": ["bread", "lettuce", "beef", "cheese", "tomato"]
+  },
+  "environment_after": {
+    "tables": {
+      "ingredients_table": {
+        "bread": 5,
+        "lettuce": 6,
+        "beef": 5,
+        "cheese": 6,
+        "tomato": 6
+      },
+      "serving_table": {
+        "bread": 1,
+        "lettuce": 0,
+        "beef": 1,
+        "cheese": 0,
+        "tomato": 0
+      }
+    },
+    "ingredients_list": ["bread", "lettuce", "beef", "cheese", "tomato"]
+  },
+  "instruction_summary": "Make a burger.",
+  "question": ""
+}
+
+
+______________________________________
+
+
+
+User:
+
+Remember how a burger is normaly built: Two buns (bread) with the other ingredients between them.
+
+
+______________________________________
+
+
+ChatGPT:
+
+{ "task_cohesion": { "task_sequence": [ "take('left', 'bread')", "take('right', 'beef')", "rotate_180()", "put('left')", "put('right')", "take('left', 'lettuce')", "put('left')", "take('left', 'cheese')", "put('left')", "take('left', 'tomato')", "put('left')", "take('left', 'bread')", "rotate_180()", "put('left')", "put('right')", "rotate_180()" ], "step_instructions": [ "Take the bottom bun (bread) with the left hand.", "Take the beef with the right hand.", "Rotate 180 degrees.", "Put down the bottom bun (bread) with the left hand.", "Put down the beef with the right hand.", "Take the lettuce with the left hand.", "Put the lettuce on top of the bottom bun.", "Take the cheese with the left hand.", "Put the cheese on top of the lettuce.", "Take the tomato with the left hand.", "Put the tomato on top of the cheese.", "Take the top bun (bread) with the left hand.", "Rotate 180 degrees.", "Put down the top bun (bread) with the left hand.", "Put down the beef with the right hand.", "Rotate 180 degrees." ], "object_names": ["bread", "beef", "lettuce", "cheese", "tomato"] }, "environment_before": { "tables": { "ingredients_table": { "bread": 6, "lettuce": 6, "beef": 6, "cheese": 6, "tomato": 6 }, "serving_table": { "bread": 0, "lettuce": 0, "beef": 0, "cheese": 0, "tomato": 0 } }, "ingredients_list": ["bread", "lettuce", "beef", "cheese", "tomato"] }, "environment_after": { "tables": { "ingredients_table": { "bread": 4, "lettuce": 5, "beef": 4, "cheese": 5, "tomato": 5 }, "serving_table": { "bread": 2, "lettuce": 1, "beef": 2, "cheese": 1, "tomato": 1 } }, "ingredients_list": ["bread", "lettuce", "beef", "cheese", "tomato"] }, "instruction_summary": "Make a burger.", "question": "" }
+
+
+______________________________________
+
+
+User: 
+
+The logical sequence is not coorrect. Between a put and a take there has to be a rotate. And between a take and a put there also has to be a rotate.
+
+
+
+______________________________________
+
+
+ChatGPT: 
+
+{
+  "task_cohesion": {
+    "task_sequence": [
+      "take('left', 'bread')",
+      "put('left')",
+      "take('right', 'beef')",
+      "rotate_180()",
+      "put('right')",
+      "take('left', 'lettuce')",
+      "rotate_180()",
+      "put('left')",
+      "take('right', 'cheese')",
+      "rotate_180()",
+      "put('right')",
+      "take('left', 'tomato')",
+      "rotate_180()",
+      "put('left')",
+      "take('right', 'bread')",
+      "rotate_180()",
+      "put('right')",
+      "rotate_180()"
+    ],
+    "step_instructions": [
+      "Take the bottom bun (bread) with the left hand.",
+      "Put down the bottom bun (bread) with the left hand.",
+      "Take the beef with the right hand.",
+      "Rotate 180 degrees.",
+      "Put down the beef with the right hand.",
+      "Take the lettuce with the left hand.",
+      "Rotate 180 degrees.",
+      "Put the lettuce on top of the bottom bun.",
+      "Take the cheese with the right hand.",
+      "Rotate 180 degrees.",
+      "Put the cheese on top of the lettuce.",
+      "Take the tomato with the left hand.",
+      "Rotate 180 degrees.",
+      "Put the tomato on top of the cheese.",
+      "Take the top bun (bread) with the right hand.",
+      "Rotate 180 degrees.",
+      "Put down the top bun (bread) with the right hand.",
+      "Rotate 180 degrees."
+    ],
+    "object_names": ["bread", "beef", "lettuce", "cheese", "tomato"]
+  },
+  "environment_before": {
+    "tables": {
+      "ingredients_table": {
+        "bread": 6,
+        "lettuce": 6,
+        "beef": 6,
+        "cheese": 6,
+        "tomato": 6
+      },
+      "serving_table": {
+        "bread": 0,
+        "lettuce": 0,
+        "beef": 0,
+        "cheese": 0,
+        "tomato": 0
+      }
+    },
+    "ingredients_list": ["bread", "lettuce", "beef", "cheese", "tomato"]
+  },
+  "environment_after": {
+    "tables": {
+      "ingredients_table": {
+        "bread": 4,
+        "lettuce": 5,
+        "beef": 4,
+        "cheese": 5,
+        "tomato": 5
+      },
+      "serving_table": {
+        "bread": 2,
+        "lettuce": 1,
+        "beef": 2,
+        "cheese": 1,
+        "tomato": 1
+      }
+    },
+    "ingredients_list": ["bread", "lettuce", "beef", "cheese", "tomato"]
+  },
+  "instruction_summary": "Make a burger.",
+  "question": ""
+}
+
+
+______________________________________
+
+
+User:
+
+The logical sequence is still not correct. You cannot perform the take command immediately after the put command, you have to perform a rotate command between take and put. You cannot perform the put command immediately after the take command, you have to perform a rotate command between put and take.
+
+
+______________________________________
+
+
+ChatGPT:
+
+{
+  "task_cohesion": {
+    "task_sequence": [
+      "take('left', 'bread')",
+      "rotate_180()",
+      "put('left')",
+      "take('right', 'beef')",
+      "rotate_180()",
+      "put('right')",
+      "take('left', 'lettuce')",
+      "rotate_180()",
+      "put('left')",
+      "take('right', 'cheese')",
+      "rotate_180()",
+      "put('right')",
+      "take('left', 'tomato')",
+      "rotate_180()",
+      "put('left')",
+      "take('right', 'bread')",
+      "rotate_180()",
+      "put('right')",
+      "rotate_180()"
+    ],
+    "step_instructions": [
+      "Take the bottom bun (bread) with the left hand.",
+      "Rotate 180 degrees.",
+      "Put down the bottom bun (bread) with the left hand.",
+      "Take the beef with the right hand.",
+      "Rotate 180 degrees.",
+      "Put down the beef with the right hand.",
+      "Take the lettuce with the left hand.",
+      "Rotate 180 degrees.",
+      "Put the lettuce on top of the bottom bun.",
+      "Take the cheese with the right hand.",
+      "Rotate 180 degrees.",
+      "Put the cheese on top of the lettuce.",
+      "Take the tomato with the left hand.",
+      "Rotate 180 degrees.",
+      "Put the tomato on top of the cheese.",
+      "Take the top bun (bread) with the right hand.",
+      "Rotate 180 degrees.",
+      "Put down the top bun (bread) with the right hand.",
+      "Rotate 180 degrees."
+    ],
+    "object_names": ["bread", "beef", "lettuce", "cheese", "tomato"]
+  },
+  "environment_before": {
+    "tables": {
+      "ingredients_table": {
+        "bread": 6,
+        "lettuce": 6,
+        "beef": 6,
+        "cheese": 6,
+        "tomato": 6
+      },
+      "serving_table": {
+        "bread": 0,
+        "lettuce": 0,
+        "beef": 0,
+        "cheese": 0,
+        "tomato": 0
+      }
+    },
+    "ingredients_list": ["bread", "lettuce", "beef", "cheese", "tomato"]
+  },
+  "environment_after": {
+    "tables": {
+      "ingredients_table": {
+        "bread": 4,
+        "lettuce": 5,
+        "beef": 4,
+        "cheese": 5,
+        "tomato": 5
+      },
+      "serving_table": {
+        "bread": 2,
+        "lettuce": 1,
+        "beef": 2,
+        "cheese": 1,
+        "tomato": 1
+      }
+    },
+    "ingredients_list": ["bread", "lettuce", "beef", "cheese", "tomato"]
+  },
+  "instruction_summary": "Make a burger.",
+  "question": ""
+}
+
+
+______________________________________
+
+
+User: 
+
+Your logical sequence is (take, rotate, put, take, rotate, put, ...), but it should be (take, rotate, put, rotate, take, rotate, put, rotate, ...) or (take, take, rotate, put, put, rotate, take, take, rotate, put, put, rotate, ...).
+
+
+______________________________________
+
+
+ChatGPT:
+
+{
+  "task_cohesion": {
+    "task_sequence": [
+      "take('left', 'bread')",
+      "rotate_180()",
+      "put('left')",
+      "rotate_180()",
+      "take('right', 'beef')",
+      "rotate_180()",
+      "put('right')",
+      "rotate_180()",
+      "take('left', 'lettuce')",
+      "rotate_180()",
+      "put('left')",
+      "rotate_180()",
+      "take('right', 'cheese')",
+      "rotate_180()",
+      "put('right')",
+      "rotate_180()",
+      "take('left', 'tomato')",
+      "rotate_180()",
+      "put('left')",
+      "rotate_180()",
+      "take('right', 'bread')",
+      "rotate_180()",
+      "put('right')",
+      "rotate_180()"
+    ],
+    "step_instructions": [
+      "Take the bottom bun (bread) with the left hand.",
+      "Rotate 180 degrees.",
+      "Put down the bottom bun (bread) with the left hand.",
+      "Rotate 180 degrees.",
+      "Take the beef with the right hand.",
+      "Rotate 180 degrees.",
+      "Put down the beef with the right hand.",
+      "Rotate 180 degrees.",
+      "Take the lettuce with the left hand.",
+      "Rotate 180 degrees.",
+      "Put the lettuce on top of the bottom bun.",
+      "Rotate 180 degrees.",
+      "Take the cheese with the right hand.",
+      "Rotate 180 degrees.",
+      "Put the cheese on top of the lettuce.",
+      "Rotate 180 degrees.",
+      "Take the tomato with the left hand.",
+      "Rotate 180 degrees.",
+      "Put the tomato on top of the cheese.",
+      "Rotate 180 degrees.",
+      "Take the top bun (bread) with the right hand.",
+      "Rotate 180 degrees.",
+      "Put down the top bun (bread) with the right hand.",
+      "Rotate 180 degrees."
+    ],
+    "object_names": ["bread", "beef", "lettuce", "cheese", "tomato"]
+  },
+  "environment_before": {
+    "tables": {
+      "ingredients_table": {
+        "bread": 6,
+        "lettuce": 6,
+        "beef": 6,
+        "cheese": 6,
+        "tomato": 6
+      },
+      "serving_table": {
+        "bread": 0,
+        "lettuce": 0,
+        "beef": 0,
+        "cheese": 0,
+        "tomato": 0
+      }
+    },
+    "ingredients_list": ["bread", "lettuce", "beef", "cheese", "tomato"]
+  },
+  "environment_after": {
+    "tables": {
+      "ingredients_table": {
+        "bread": 4,
+        "lettuce": 5,
+        "beef": 4,
+        "cheese": 5,
+        "tomato": 5
+      },
+      "serving_table": {
+        "bread": 2,
+        "lettuce": 1,
+        "beef": 2,
+        "cheese": 1,
+        "tomato": 1
+      }
+    },
+    "ingredients_list": ["bread", "lettuce", "beef", "cheese", "tomato"]
+  },
+  "instruction_summary": "Make a burger.",
+  "question": ""
+}
+

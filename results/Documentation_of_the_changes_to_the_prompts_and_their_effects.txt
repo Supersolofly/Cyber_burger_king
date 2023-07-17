@@ -1,0 +1,60 @@
+Documentation of the changes to the prompts from the paper 'ChatGPT Empowered Long-Step Robot Control in Various 
+Environments: A Case Application', mainly by adding commands to the last initial prompt and their effects 
+(the results can be seen in the other documents named ‘Commands 1_*’):
+
+Specified the commands and what should follow logically after each in the ROBOT ACTION LIST for better results.
+
+Each test is run on the simple request “Make me a burger.” first, to identify which commands are needed:
+	1.	_
+	2.	_
+	3.	_
+	4.	_
+	5.	_
+	6.	The first 6 commands are always included. These are the initial commands from the paper adjusted 
+		to our application.
+		a.	First ChatGPT response: Does not follow the logical sequence of 
+			(take -> take -> rotate -> put -> put -> rotate) or (take -> rotate -> put -> rotate) 
+			-> sequence not executable with for example two take commands with the right hand
+		b.	User clarification for an executable result: Specified the logical sequence 
+			(after two take commands a rotate has to follow, two take commands with one hand before 
+			rotate and put is not feasible, after each take with a hand a put with that hand has to 
+			follow; the same for put) -> copied this as the next command to the initial prompts
+		c.	Output is feasible and satisfies the conditions of a burger.
+	7.	Three commands are added here (7, 8 and 9), as ChatGPT has to perform the logical sequence and 
+		form an entire burger. First a task sequence was output, that did not form an entire burger. 
+		After correction the task sequence is not correct, so this is corrected by specifying the logical 
+		sequence again.
+		a.	Correction 1: Remember how a burger should look like: Two buns (bread) with the 
+			ingredients between them. -> copied this in an adjusted version to the initial prompts
+		b.	Correction 2 and 3: Logical sequence was specified more explicitly:
+			i.	You cannot perform the take command immediately after the put command, you have 
+				to perform a rotate command between take and put. You cannot perform the put command immediately after the take command, you have to perform a rotate command between put and take. -> copied this to the initial prompts
+			ii.	Your logical sequence is (take, rotate, put, take, rotate, put, ...), but it 
+				should be (take, rotate, put, rotate, take, rotate, put, rotate, ...) or 
+				(take, take, rotate, put, put, rotate, take, take, rotate, put, put, rotate, ...). 
+				-> copied this in an adjusted version to the initial prompts
+		c.	Outputs a sequence of (take,rotate,put,rotate,take,…) which is not optimal but feasible.
+	8.	_
+	9.	_
+	10.	With the added commands, the results in form of the task sequence were eventually of a logical 
+		form and executable without corrections. The remaining problem:
+		a.	In the task sequence that ChatGPT output only one take and one put action between 
+			rotations is performed: 
+			(take(left), rotate, put(left), rotate, take(right), rotate, put(right), rotate, ...)
+		b.	Solution: Specify the double handed task sequence once again:
+			i.	You do not have to have a logical sequence of the form 
+				(take(left), rotate, put(left), rotate, take(right), rotate, put(right), rotate, ...), 
+				you can also perform a logical sequence like this instead: 
+				(take(left), take(right), rotate, put(left), put(right), rotate, take(left), take(right), rotate, put(left), put(right), rotate, ...). 
+				-> copied this to the initial prompts
+	11.	The output is still of the form 
+		(take(left), rotate, put(left), rotate, take(right), rotate, put(right), rotate, ...), 
+		which seems to be a “stable point” if one wanted to view this as a task sequence space. 
+		However, this output satisfies our conditions and needs and as it stays the same for several tests, 
+		we finish adding commands and adjusting the initial prompts at this point and test more complex 
+		tasks with these commands that should output a logical command sequence.
+	12.	Added later as an exception to specify that only the ingredients that were originally on the 
+		ingredients table can be used. -> Sometimes the number of the original ingredients is still made 
+		larger (for example 7 instead of 6 times bread in total in the output environment) 
+		-> Happens randomly -> No solution found to this problem. 
+		But it did not change the correctness of any task sequence.

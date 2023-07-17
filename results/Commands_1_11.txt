@@ -1,0 +1,122 @@
+Commands 1 - 11:
+
+ChatGPT: 
+
+{
+  "task_cohesion": {
+    "task_sequence": [
+      "take('left', 'bread')",
+      "rotate_180()",
+      "put('left')",
+      "rotate_180()",
+      "take('right', 'lettuce')",
+      "rotate_180()",
+      "put('right')",
+      "rotate_180()",
+      "take('left', 'beef')",
+      "rotate_180()",
+      "put('left')",
+      "rotate_180()",
+      "take('right', 'cheese')",
+      "rotate_180()",
+      "put('right')",
+      "rotate_180()",
+      "take('left', 'tomato')",
+      "rotate_180()",
+      "put('left')",
+      "rotate_180()",
+      "take('right', 'bread')",
+      "rotate_180()",
+      "put('right')"
+    ],
+    "step_instructions": [
+      "Take a bread with your left hand from the ingredients table.",
+      "Rotate 180 degrees.",
+      "Put the bread down with your left hand on the serving table.",
+      "Rotate 180 degrees.",
+      "Take a lettuce with your right hand from the ingredients table.",
+      "Rotate 180 degrees.",
+      "Put the lettuce down with your right hand on the serving table.",
+      "Rotate 180 degrees.",
+      "Take a beef with your left hand from the ingredients table.",
+      "Rotate 180 degrees.",
+      "Put the beef down with your left hand on the serving table.",
+      "Rotate 180 degrees.",
+      "Take a cheese with your right hand from the ingredients table.",
+      "Rotate 180 degrees.",
+      "Put the cheese down with your right hand on the serving table.",
+      "Rotate 180 degrees.",
+      "Take a tomato with your left hand from the ingredients table.",
+      "Rotate 180 degrees.",
+      "Put the tomato down with your left hand on the serving table.",
+      "Rotate 180 degrees.",
+      "Take a bread with your right hand from the ingredients table.",
+      "Rotate 180 degrees.",
+      "Put the bread down with your right hand on the serving table."
+    ],
+    "object_names": [
+      "bread",
+      "lettuce",
+      "beef",
+      "cheese",
+      "tomato",
+      "bread"
+    ]
+  },
+  "environment_before": {
+    "tables": {
+      "ingredients_table": {
+        "bread": 6,
+        "lettuce": 6,
+        "beef": 6,
+        "cheese": 6,
+        "tomato": 6
+      },
+      "serving_table": {
+        "bread": 0,
+        "lettuce": 0,
+        "beef": 0,
+        "cheese": 0,
+        "tomato": 0
+      }
+    },
+    "ingredients_list": [
+      "bread",
+      "lettuce",
+      "beef",
+      "cheese",
+      "tomato"
+    ]
+  },
+  "environment_after": {
+    "tables": {
+      "ingredients_table": {
+        "bread": 4,
+        "lettuce": 5,
+        "beef": 5,
+        "cheese": 5,
+        "tomato": 5
+      },
+      "serving_table": {
+        "bread": 2,
+        "lettuce": 1,
+        "beef": 1,
+        "cheese": 1,
+        "tomato": 1
+      }
+    },
+    "ingredients_list": [
+      "bread",
+      "lettuce",
+      "beef",
+      "cheese",
+      "tomato"
+    ]
+  },
+  "instruction_summary": "Make a burger.",
+  "question": ""
+}
+
+
+
+
