@@ -1,7 +1,5 @@
 # Cyber Burger King
 
-
-
 ## Introduction
 
 In order to get our work public for the project "Instructing Robots with Fundation Models", we transport the codes we've worked on since May, 2023 from gitlab to here. 
