@@ -1,10 +1,10 @@
-# Cyber Burger King, an instructing Robot with Fundation Models
+# Cyber Burger King
 
 
 
 ## Introduction
 
-In order to get our work public for the project "Cyber Burger King, an instructing Robot with Fundation Models", we transport the codes we've worked on since May, 2023 from gitlab to here. 
+In order to get our work public for the project "Instructing Robots with Fundation Models", we transport the codes we've worked on since May, 2023 from gitlab to here. 
 In our project, we tested the potential ability of a Large Language Model ChatGPT to interact with users for controlling the movable manipulating robot PR2 [makeareadme.com](https://robotsguide.com/robots/pr2), through proper prompting and flexible text commands. 
 
 To get hands on experience by your own, you can follow the following steps to enter the world of our mini restaurant "Cyber Burger King". 
