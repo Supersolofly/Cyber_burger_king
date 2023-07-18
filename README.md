@@ -15,7 +15,7 @@ Next, in order to train ChatGPT to generate executable commands for making a bur
 
 Finally, the tests results of ChatGPT's responds of the command "make me a <personalized-defined> burger" are available in the file "Testing_more_complex_tasks.txt" in the folder "results".
 
-Feel free to go through it, if you have any question, you can contact us per email "ge57nud@mytum.de". 
+Feel free to go through it, if you have any question, you can contact us per email ge57nud@mytum.de. 
   
 ## Badges
 On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
