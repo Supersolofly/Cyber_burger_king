@@ -30,7 +30,7 @@ As a team of five, we thanks the contribution that are made by all our team memb
 not defined yet.
 
 ## Project status
-There is a considerable potential for our project to try ChatGPT part into more creative ways and define the task-based API library part to be more diverse. Besides, the size of the restaurant can be expanded as well. More options of the foods can be invited to task waht is ChatGPT's limit in dealing more complex tasks. 
+There is a considerable potential for our project to try ChatGPT part into more creative ways and define the task-based API library part to be more diverse. Besides, the size of the restaurant can be expanded as well. More options of the foods can be invited to test waht is ChatGPT's limit in dealing with more complex tasks. 
 
 Therefore, although the project status for our course is closed, as we finished the final smart goal in a nice way, we are looking forward to invite any team members of us or any of you who are watching right now to be the maintainer for the exciting future development.
 
