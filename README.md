@@ -27,7 +27,7 @@ If you have any question, you can contact us per email ge57nud@mytum.de.
 As a team of five, we thanks the contribution that are made by all our team members, they are: Zihan, Xin, Fatma, Christopher, Yifei.
 
 ## License
-not defined yet.
+MIT lisence
 
 ## Project status
 There is a considerable potential for our project to try ChatGPT part into more creative ways and define the task-based API library part to be more diverse. Besides, the size of the restaurant can be expanded as well. More options of the foods can be invited to test waht is ChatGPT's limit in dealing with more complex tasks. 
